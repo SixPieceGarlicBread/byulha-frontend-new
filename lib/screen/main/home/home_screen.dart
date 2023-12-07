@@ -1,8 +1,13 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taba/domain/perfume/perfume.dart';
 import 'package:taba/domain/perfume/perfume_provider.dart';
-import 'package:taba/screen/main/home/image_rec.dart';
+import 'package:taba/modules/orb/components/components.dart';
+import 'package:taba/routes/router_provider.dart';
+import 'package:taba/screen/main/home/image_recognition_screen.dart';
+
+import '../../../routes/router_path.dart';
 
 final currentPageProvider = StateProvider<int>((ref) => 0);
 
@@ -10,124 +15,217 @@ class HomeScreen extends ConsumerWidget {
   HomeScreen({Key? key}) : super(key: key);
 
   final PageController _pageController = PageController();
-  final int _totalAds = 2; // 총 광고 페이지 수
+  final int _totalAds = 3; // 총 광고 페이지 수
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final AsyncValue<PerfumeList> perfumeList = ref.watch(perfumeListProvider);
+    final ThemeData theme = Theme.of(context);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Align(
-          alignment: Alignment.centerLeft,
-          child: Text('로고'),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+
+    return OrbScaffold(
+      orbAppBar: OrbAppBar(
+        title: "PURPLE",
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 200, // 광고 배너의 높이
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: _totalAds,
-                itemBuilder: (_, index) {
-                  return Container(
-                    color: Colors.grey, // 광고 이미지를 넣을 수 있음
-                    child: Center(
-                      child: Text('배너 ${index + 1}'),
-                    ),
-                  );
-                },
+      shrinkWrap: true,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CarouselSlider(
+            items: [
+              Image.asset(
+                'assets/images/main_image1.png',
+                fit: BoxFit.fill,
               ),
+              Image.asset(
+                'assets/images/main_image2.JPG',
+                fit: BoxFit.fill,
+              ),
+              Image.asset(
+                'assets/images/main_image3.JPG',
+                fit: BoxFit.fill,
+              ),
+            ]
+                .map((e) => Builder(builder: (BuildContext context) {
+                      return ClipRRect(
+                        //borderRadius: BorderRadius.circular(8),
+                        child: e,
+                      );
+                    }))
+                .toList(),
+            options: CarouselOptions(
+              clipBehavior: Clip.hardEdge,
+              aspectRatio: 1.2,
+              viewportFraction: 1,
+              autoPlayInterval: const Duration(seconds: 5),
+              autoPlayAnimationDuration: const Duration(seconds: 2),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              autoPlay: true,
+              onPageChanged: (index, reason) {},
             ),
           ),
-          // 기타 SliverToBoxAdapter 위젯들...
-          SliverToBoxAdapter(
-            child: Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ImageRecScreen()),
-                  );
-                },
-                child: Text('이미지로 향수 추천받기'),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 120, vertical: 40),
-                ),
-              ),
-            ),
+          const SizedBox(
+            height: 16,
           ),
-          SliverPadding(
-            padding: const EdgeInsets.all(16.0),
-            sliver: SliverToBoxAdapter(
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Best Rated'),
-              ),
-            ),
+          OrbButton(
+            buttonText: '카리스에게 추천받기',
+            onPressed: () async {
+              ref
+                  .read(routerProvider)
+                  .push(RouteInfo.imageRecognition.fullPath);
+            },
           ),
-          perfumeList.when(
-            data: (data) => SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 3 / 4,
-              ),
-              delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                  final perfume = data.content[index];
-                  return Card(
-                    color: Colors.white,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Expanded(
-                          child: perfume.thumbnailUrl != null
-                              ? Image.network(
-                            perfume.thumbnailUrl!,
-                            fit: BoxFit.cover,
-                          )
-                              : const Placeholder(),
+          const SizedBox(
+            height: 16,
+          ),
+
+          OrbBoardContainer(
+            titleText: 'Best Rated',
+            child: GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: perfumeList.when(
+              data: (perfumeList) => perfumeList.size,
+              loading: () => 0,
+              error: (error, stackTrace) => 0,
+            ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.7,
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              return Stack(
+                fit: StackFit.expand,
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 24,
+                          horizontal: 24,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(perfume.name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                              Text('Rating: ${perfume.rating}'),
-                            ],
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          color: const Color(0xffffffff),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color(0x0f000000),
+                              offset: Offset(0, 4),
+                              blurRadius: 8,
+                              spreadRadius: 0,
+                            ),
+                          ],
+                        ),
+                        child: InkWell(
+                          onTap: () {
+                            //
+                          },
+                          child: Image.network(
+                            perfumeList.when(
+                              data: (perfumeList) =>
+                                  perfumeList.content[index].thumbnailUrl!,
+                              loading: () => '',
+                              error: (error, stackTrace) => '',
+                            ),
+                            fit: BoxFit.fill,
                           ),
                         ),
-                      ],
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              perfumeList.when(
+                                data: (perfumeList) =>
+                                    perfumeList.content[index].company,
+                                loading: () => '',
+                                error: (error, stackTrace) => '',
+                              ),
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            SizedBox(
+                              height: 42,
+                              child: Text(
+                                perfumeList.when(
+                                  data: (perfumeList) =>
+                                      perfumeList.content[index].name,
+                                  loading: () => '',
+                                  error: (error, stackTrace) => '',
+                                ),
+                                style: theme.textTheme.bodyMedium,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Positioned(
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 16),
+                        child: IconButton(
+                          onPressed: () {
+                            final _perfumeList = ref.read(perfumeListProvider.notifier).favoritePerfumeList;
+                            if(_perfumeList.contains(perfumeList.value!.content[index])) {
+                              ref
+                                  .read(perfumeListProvider.notifier)
+                                  .removeFavoritePerfume(
+                                perfumeList.value!.content[index],
+                              );
+                              SnackBar snackBar = SnackBar(
+                                content: Text(
+                                  '찜 목록에서 삭제되었습니다.',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: const Color(0xffffffff),
+                                  ),
+                                ),
+                                duration: const Duration(seconds: 2),
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                            } else{
+                              ref
+                                  .read(perfumeListProvider.notifier)
+                                  .addFavoritePerfume(
+                                perfumeList.value!.content[index],
+                              );
+                              SnackBar snackBar = SnackBar(
+                                content: Text(
+                                  '찜 목록에 추가되었습니다.',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: const Color(0xffffffff),
+                                  ),
+                                ),
+                                duration: const Duration(seconds: 2),
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                            }
+                          },
+                          icon: Icon(Icons.favorite_border_outlined),
+                          ),
+                        ),
+                      ),
                     ),
-                  );
-                },
-                childCount: data.content.length,
-              ),
-            ),
-            loading: () => SliverFillRemaining(
-              child: Center(child: CircularProgressIndicator()),
-            ),
-            error: (e, stack) => SliverFillRemaining(
-              child: Center(child: Text('An error occurred: $e')),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: OutlinedButton(
-              onPressed: () {
-                final currentPage = ref.read(currentPageProvider);
-                ref.read(perfumeListProvider.notifier).getPerfumeList(currentPage + 1, 10);
+                  ],
+                );
               },
-              child: const Text('더 경험하기'),
-            ),
+            )
           ),
         ],
       ),

@@ -6,15 +6,16 @@ import 'package:taba/screen/error/route_error_screen.dart';
 import 'package:taba/screen/login/login_screen.dart';
 import 'package:taba/screen/login/sign_up/signup_screen.dart';
 import 'package:taba/screen/main/home/home_screen.dart';
-import 'package:taba/screen/main/profile/profile_screen.dart';
 import 'package:taba/screen/splash/splash_screen.dart';
 
-import '../screen/main/profile/main_screen.dart';
+import '../screen/main/home/image_recognition_screen.dart';
+import '../screen/main/main_screen.dart';
+import '../screen/main/profile_screen.dart';
 
 final Provider<GoRouter> routerProvider = Provider<GoRouter>(
   (ref) {
     return GoRouter(
-      initialLocation: RouteInfo.splash.fullPath,
+      initialLocation: RouteInfo.main.fullPath,
       routes: [
         GoRoute(
           path: RouteInfo.splash.fullPath,
@@ -27,6 +28,13 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>(
             GoRoute(
               path: RouteInfo.home.path,
               builder: (context, state) => HomeScreen(key: state.pageKey),
+              routes: [
+                GoRoute(
+                  path: RouteInfo.imageRecognition.path,
+                  builder: (context, state) =>
+                      ImageRecognitionScreen(key: state.pageKey),
+                ),
+              ],
             ),
             GoRoute(
               path: RouteInfo.profile.path,

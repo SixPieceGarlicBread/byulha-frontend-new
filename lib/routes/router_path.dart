@@ -36,6 +36,11 @@ class RouteInfo {
     path: 'home',
     fullPath: '${main.fullPath}/home',
   );
+  static RouteData imageRecognition = RouteData(
+    name: 'imageRecognition',
+    path: 'imageRecognition',
+    fullPath: '${home.fullPath}/imageRecognition',
+  );
   //profile
   static RouteData profile = RouteData(
     name: 'profile',

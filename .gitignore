@@ -7,9 +7,9 @@
 /dataSources/
 /dataSources.local.xml
 
-#/README.md
-#/build
-#/ios
-#/android
-#/.idea
-#/.dart_tool
+/README.md
+/build
+/ios
+/android
+/.idea
+/.dart_tool

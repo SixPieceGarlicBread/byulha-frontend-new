@@ -9,6 +9,17 @@ AsyncNotifierProvider<PerfumeListNotifier, PerfumeList>(
         () => PerfumeListNotifier());
 
 class PerfumeListNotifier extends AsyncNotifier<PerfumeList> {
+
+  final List<Perfume> favoritePerfumeList = [];
+
+  void addFavoritePerfume(Perfume perfume) {
+    favoritePerfumeList.add(perfume);
+  }
+
+  void removeFavoritePerfume(Perfume perfume) {
+    favoritePerfumeList.remove(perfume);
+  }
+
   // 페이지 번호와 한 페이지당 항목 수를 매개변수로 받는 getPerfumeList 함수
   void getPerfumeList(int page, int size) async {
     state = await AsyncValue.guard(

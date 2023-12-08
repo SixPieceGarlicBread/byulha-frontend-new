@@ -103,7 +103,7 @@ class Repository {
       options: Options(
         contentType: 'multipart/form-data',
         headers: {
-          'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTcwMjAyMzUyMywidXNlcklkIjoiMTYiLCJpYXQiOjE3MDIwMjE3MjN9.zBVqMAetLsh95buHrsenYQzeLF1gybIK_ZBztI7A9bY'
+          'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTcwMjAyODM3NywidXNlcklkIjoiMTYiLCJpYXQiOjE3MDIwMjY1Nzd9.De6KYC8smMVbfwmAwZf7X9f-cnpO-0Jd3fA28ED04L8'
         },
       ),
     );

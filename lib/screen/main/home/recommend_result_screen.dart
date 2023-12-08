@@ -1,8 +1,11 @@
 //image_recognition_screen.dart
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taba/modules/orb/components/components.dart';
 
+import '../../../domain/perfume/perfume.dart';
 import '../../../domain/perfume/perfume_list_provider.dart';
 import '../../../domain/perfume/perfume_provider.dart';
 
@@ -31,7 +34,7 @@ class _RecommendResultScreen extends ConsumerState {
     final ThemeData theme = Theme.of(context);
     return OrbScaffold(
       orbAppBar: OrbAppBar(
-        title: '추천 결과',
+        title: '리비의 추천 결과',
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
@@ -48,26 +51,34 @@ class _RecommendResultScreen extends ConsumerState {
                 data: (perfume) {
                   return Column(
                     children: [
-                      Row(
+                      Text(
+                        perfume.name,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          color: const Color(0xff625a8b),
+                        ),
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        perfume.company,
+                        style: theme.textTheme.bodyMedium,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Column(
                             children: [
-                              Text(
-                                perfume.name,
-                                style: theme.textTheme.bodyMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.center,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              Text(
-                                perfume.company,
-                                style: theme.textTheme.bodyMedium,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.center,
-                              ),
+
+                            ],
+                          ),
+                          Row(
+                            children: [
                               Container(
                                 margin: const EdgeInsets.all(8),
                                 padding: const EdgeInsets.symmetric(
@@ -86,51 +97,85 @@ class _RecommendResultScreen extends ConsumerState {
                                     ),
                                   ],
                                 ),
-                                child: InkWell(
-                                  onTap: () {
-                                    //
-                                  },
-                                  child: Image(
-                                    image: NetworkImage(perfume.perfumeImage),
-                                    width: 128,
-                                    height: 128,
-                                    fit: BoxFit.fill,
-                                  ),
+                                child: Image(
+                                  image: NetworkImage(perfume.perfumeImage),
+                                  width: 128,
+                                  height: 128,
+                                  fit: BoxFit.fill,
                                 ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.star,
-                                    color: Color(0xffffd700),
-                                  ),
-                                  Text(
-                                    perfume.rating.toString(),
-                                    style: theme.textTheme.bodyMedium?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ],
                               ),
                               const SizedBox(
-                                width: 32,
+                                width: 8,
                               ),
-                              Text(
-                                perfume.forGender,
-                                style: theme.textTheme.bodyMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    NoteChartBar(notes: perfume.notes),
+                                    const SizedBox(
+                                      height: 8,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            const Icon(
+                                              Icons.star,
+                                              color: Color(0xffffd700),
+                                            ),
+                                            Text(
+                                              perfume.rating.toString(),
+                                              style: theme.textTheme.bodyMedium?.copyWith(
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ],
+                                        ),
+                                        Text(
+                                          perfume.forGender,
+                                          style: theme.textTheme.bodyMedium?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 8,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          perfume.sillage,
+                                          style: theme.textTheme.bodyMedium?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                        Text(
+                                          perfume.longevity,
+                                          style: theme.textTheme.bodyMedium?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                                textAlign: TextAlign.center,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
                               ),
                             ],
                           ),
@@ -189,14 +234,9 @@ class _RecommendResultScreen extends ConsumerState {
                                     ),
                                   ],
                                 ),
-                                child: InkWell(
-                                  onTap: () {
-                                    //
-                                  },
-                                  child: Image.network(
-                                    perfumeList.content[index + 1].thumbnailUrl,
-                                    fit: BoxFit.fill,
-                                  ),
+                                child: Image.network(
+                                  perfumeList.content[index + 1].thumbnailUrl,
+                                  fit: BoxFit.fill,
                                 ),
                               ),
                               const SizedBox(
@@ -236,4 +276,33 @@ class _RecommendResultScreen extends ConsumerState {
       ),
     );
   }
+}
+
+class NoteChartBar extends StatelessWidget{
+
+  final List<PerfumeNote> notes;
+
+  const NoteChartBar({super.key, required this.notes});
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: [
+        for(int i = 0; i < (notes.length > 3 ? 3 : notes.length) ; i++)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                color: Color(Random().nextInt(0xffffffff)),
+                width: double.parse(notes[i].value),
+                height: 12,
+              ),
+              Text(notes[i].name),
+            ],
+          ),
+      ],
+    );
+  }
+
 }

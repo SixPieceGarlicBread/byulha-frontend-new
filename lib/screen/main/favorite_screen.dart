@@ -117,11 +117,11 @@ class _FavoriteScreen extends ConsumerState<FavoriteScreen> {
                               .contains(perfumeList[index])
                               ? const Icon(
                             Icons.favorite,
-                            color: Colors.red,
+                            color: Color(0xff625a8b),
                           )
                               : const Icon(
                             Icons.favorite_border,
-                            color: Colors.red,
+                            color: Color(0xff625a8b),
                           ),
                         ),
                       ),

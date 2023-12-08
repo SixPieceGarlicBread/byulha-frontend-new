@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taba/screen/main/home/home_screen.dart';
 import 'package:taba/screen/main/profile_screen.dart';
 import 'package:taba/screen/main/search_screen.dart';
-import '../../../modules/orb/components/components.dart';
+import '../../modules/orb/components/components.dart';
 import 'favorite_screen.dart'; // Orb 스킨 컴포넌트
 
 final pageControllerProvider = StateProvider<PageController>((ref) {

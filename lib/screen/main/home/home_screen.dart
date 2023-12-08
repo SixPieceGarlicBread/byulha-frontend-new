@@ -74,7 +74,7 @@ class _HomeScreen extends ConsumerState {
             height: 16,
           ),
           OrbButton(
-            buttonText: '카리스에게 추천받기',
+            buttonText: '<AI조향사 리비>에게 추천받기',
             onPressed: () async {
               ref
                   .read(routerProvider)
@@ -110,7 +110,7 @@ class _HomeScreen extends ConsumerState {
                               margin: const EdgeInsets.all(8),
                               padding: const EdgeInsets.symmetric(
                                 vertical: 24,
-                                horizontal: 24,
+                                horizontal: 40,
                               ),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8.0),

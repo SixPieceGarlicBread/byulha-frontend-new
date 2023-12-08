@@ -51,7 +51,7 @@ class _FavoriteScreen extends ConsumerState<FavoriteScreen> {
                           margin: const EdgeInsets.all(8),
                           padding: const EdgeInsets.symmetric(
                             vertical: 24,
-                            horizontal: 24,
+                            horizontal: 40,
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8.0),

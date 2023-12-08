@@ -20,7 +20,7 @@ class HomeScreen extends ConsumerStatefulWidget{
 class _HomeScreen extends ConsumerState {
 
   final PageController _pageController = PageController();
-  final int _totalAds = 3; // 총 광고 페이지 수
+  final int _totalAds = 2; // 총 광고 페이지 수
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,6 @@ class _HomeScreen extends ConsumerState {
     return OrbScaffold(
       orbAppBar: const OrbAppBar(
         title: "PURPLE",
-
       ),
       shrinkWrap: true,
       body: Column(
@@ -75,7 +74,7 @@ class _HomeScreen extends ConsumerState {
             height: 16,
           ),
           OrbButton(
-            buttonText: '<AI조향사 리비> 에게 추천받기',
+            buttonText: '<AI조향사 리비>에게 추천받기',
             onPressed: () async {
               ref
                   .read(routerProvider)
@@ -141,19 +140,18 @@ class _HomeScreen extends ConsumerState {
                             Column(
                               children: [
                                 Text(
-                                  perfumeList.content[index].name,
+                                  perfumeList.content[index].company,
                                   style: theme.textTheme.bodyMedium?.copyWith(
                                     fontWeight: FontWeight.bold,
-                                    color: theme.primaryColor,
                                   ),
                                   textAlign: TextAlign.center,
-                                  maxLines: 2,
+                                  maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 Text(
-                                  perfumeList.content[index].company,
+                                  perfumeList.content[index].name,
                                   style: theme.textTheme.bodyMedium,
-                                  maxLines: 1,
+                                  maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.center,
                                 ),

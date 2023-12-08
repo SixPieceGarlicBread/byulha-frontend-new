@@ -4,7 +4,8 @@ import 'package:taba/screen/main/home/home_screen.dart';
 import 'package:taba/screen/main/profile_screen.dart';
 import 'package:taba/screen/main/search_screen.dart';
 import '../../modules/orb/components/components.dart';
-import 'favorite_screen.dart'; // Orb 스킨 컴포넌트
+import 'favorite_screen.dart';
+import 'home/image_recognition_screen.dart'; // Orb 스킨 컴포넌트
 
 final pageControllerProvider = StateProvider<PageController>((ref) {
   return PageController(initialPage: 0);
@@ -29,6 +30,7 @@ class MainScreen extends ConsumerWidget {
         children: [
           HomeScreen(), // 홈 화면
           SearchScreen(), // 검색 화면
+          ImageRecognitionScreen(), // 이미지 인식 화면
           FavoriteScreen(), // 찜 목록 화면
           ProfileScreen() // 프로필 화면
 
@@ -39,6 +41,14 @@ class MainScreen extends ConsumerWidget {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "홈"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "검색"),
+          BottomNavigationBarItem(
+              icon: (Icon(
+                Icons.bubble_chart_rounded,
+                color: Color(0xff625a8b),
+                size: 40,
+                )
+              ),
+              label: "<AI조향사 리비>에게 추천받기"),
           BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "찜 목록"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "내 정보"),
         ],

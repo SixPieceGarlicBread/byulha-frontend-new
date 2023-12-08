@@ -155,6 +155,12 @@ class _RecommendResultScreen extends ConsumerState {
                                       MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
+                                          "잔향:",
+                                          style: theme.textTheme.bodyMedium?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text(
                                           perfume.sillage,
                                           style: theme.textTheme.bodyMedium?.copyWith(
                                             fontWeight: FontWeight.bold,
@@ -162,6 +168,18 @@ class _RecommendResultScreen extends ConsumerState {
                                           textAlign: TextAlign.center,
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
+                                        ),
+                                        Text(
+                                          "   ",
+                                          style: theme.textTheme.bodyMedium?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text(
+                                          "지속:",
+                                          style: theme.textTheme.bodyMedium?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                         Text(
                                           perfume.longevity,
@@ -200,7 +218,7 @@ class _RecommendResultScreen extends ConsumerState {
                 height: 32,
               ),
               OrbBoardContainer(
-                titleText: '추천 향수',
+                titleText: '리비가 추천하는 다른 향수',
                 child: GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),

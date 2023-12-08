@@ -45,6 +45,15 @@ class _ImageRecognitionScreenState
   @override
   Widget build(BuildContext context) {
     return OrbScaffold(
+      orbAppBar: OrbAppBar(
+        title: '<AI조향사 리비>에게 추천받기',
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
@@ -55,13 +64,13 @@ class _ImageRecognitionScreenState
                     fit: BoxFit.fill,
                   )
                 : Image.asset(
-                    'assets/images/main_image1.png',
-                    height: 300,
+                    'assets/images/tutorial.jpg',
+                    height: 400,
                     fit: BoxFit.fill,
                   ),
             const SizedBox(height: 24),
             OrbButton(
-              buttonText: '이미지 선택',
+              buttonText: '<리비>에게 줄 이미지 선택하기',
               onPressed: () async {
                 await _pickImage();
               },
@@ -70,7 +79,7 @@ class _ImageRecognitionScreenState
         ),
       ),
       submitButton: OrbButton(
-        buttonText: '향수 추천 시작',
+        buttonText: '이미지로 시향 시작하기',
         onPressed: () async {
           final List<XFile> images = [image!];
           ref

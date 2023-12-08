@@ -13,7 +13,7 @@ class PerfumeNote {
 class PerfumeDetail {
   final String name;
   final String company;
-  final String rating;
+  final double rating;
   final String forGender;
   final String perfumeUrl;
   final String perfumeImage;

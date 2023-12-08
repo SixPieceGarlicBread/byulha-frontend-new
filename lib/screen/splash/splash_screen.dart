@@ -33,7 +33,7 @@ class _SplashScreen extends ConsumerState<SplashScreen> with TickerProviderState
   Widget build(BuildContext context) {
     return FlutterSplashScreen(
       duration: const Duration(milliseconds: 2500),
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xffefe9e3),
       onEnd: () {
         if (mounted) ref.read(routerProvider).pushReplacement(RouteInfo.login.fullPath);
       },
@@ -41,11 +41,11 @@ class _SplashScreen extends ConsumerState<SplashScreen> with TickerProviderState
         opacity: _controller,
         child: Center(
           child: Text(
-            'TABA',
+            'PURPLE',
             style: TextStyle(
               fontSize: 50,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: Color(0xff625a8b),
             ),
           ),
         ),

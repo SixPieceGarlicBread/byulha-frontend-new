@@ -22,10 +22,9 @@ class _ProfileScreen extends ConsumerState<ProfileScreen> {
 
 // }
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('MY PAGE'),
-        centerTitle: true,
+    return OrbScaffold(
+      orbAppBar: OrbAppBar(
+        title: '프로필',
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

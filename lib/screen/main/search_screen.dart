@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:taba/modules/orb/components/app_bar/orb_app_bar.dart';
+
+import '../../modules/orb/components/scaffold/orb_scaffold.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -13,17 +16,9 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('SEARCH'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // 검색 기능 구현
-            },
-          ),
-        ],
+    return OrbScaffold(
+      orbAppBar: OrbAppBar(
+        title: '검색',
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -32,7 +27,7 @@ class _SearchScreenState extends State<SearchScreen> {
               padding: const EdgeInsets.all(16.0),
               child: TextField(
                 decoration: InputDecoration(
-                  labelText: '검색',
+                  labelText: '브랜드 혹은 제품명을 입력하세요',
                   border: OutlineInputBorder(),
                   suffixIcon: const Icon(Icons.search),
                 ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/perfume/perfume_list_provider.dart';
+import '../../modules/orb/components/app_bar/orb_app_bar.dart';
+import '../../modules/orb/components/scaffold/orb_scaffold.dart';
 
 class FavoriteScreen extends ConsumerStatefulWidget {
   const FavoriteScreen({Key? key}) : super(key: key);
@@ -18,17 +20,9 @@ class _FavoriteScreen extends ConsumerState<FavoriteScreen> {
   Widget build(BuildContext context) {
     final perfumeList = ref.watch(favoritePerfumeListProvider);
     final ThemeData theme = Theme.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('즐겨찾기'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // 검색 기능 구현
-            },
-          ),
-        ],
+    return OrbScaffold(
+      orbAppBar: OrbAppBar(
+        title: '찜 목록',
       ),
       body: SingleChildScrollView(
         child: Column(

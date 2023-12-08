@@ -41,6 +41,11 @@ class RouteInfo {
     path: 'imageRecognition',
     fullPath: '${home.fullPath}/imageRecognition',
   );
+  static RouteData recommendResult = RouteData(
+    name: 'recommendResult',
+    path: 'recommendResult',
+    fullPath: '${home.fullPath}/recommendResult',
+  );
   //profile
   static RouteData profile = RouteData(
     name: 'profile',

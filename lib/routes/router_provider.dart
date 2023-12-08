@@ -9,6 +9,7 @@ import 'package:taba/screen/main/home/home_screen.dart';
 import 'package:taba/screen/splash/splash_screen.dart';
 
 import '../screen/main/home/image_recognition_screen.dart';
+import '../screen/main/home/recommend_result_screen.dart';
 import '../screen/main/main_screen.dart';
 import '../screen/main/profile_screen.dart';
 
@@ -33,6 +34,11 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>(
                   path: RouteInfo.imageRecognition.path,
                   builder: (context, state) =>
                       ImageRecognitionScreen(key: state.pageKey),
+                ),
+                GoRoute(
+                  path: RouteInfo.recommendResult.path,
+                  builder: (context, state) =>
+                      RecommendResultScreen(key: state.pageKey),
                 ),
               ],
             ),

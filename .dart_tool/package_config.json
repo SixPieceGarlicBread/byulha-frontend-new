@@ -314,6 +314,42 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "permission_handler",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/permission_handler-11.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "permission_handler_android",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/permission_handler_android-12.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "permission_handler_apple",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/permission_handler_apple-9.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "permission_handler_html",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/permission_handler_html-0.1.0+2",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "permission_handler_platform_interface",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/permission_handler_platform_interface-4.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "permission_handler_windows",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/permission_handler_windows-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/platform-3.1.3",
       "packageUri": "lib/",
@@ -464,7 +500,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-05T10:00:35.171004Z",
+  "generated": "2023-12-08T07:32:13.812707Z",
   "generator": "pub",
   "generatorVersion": "3.2.2"
 }

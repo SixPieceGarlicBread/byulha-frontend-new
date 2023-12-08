@@ -54,11 +54,11 @@ class OrbTheme {
     brightness: Brightness.light,
     colorScheme: const ColorScheme.light(
       //메인 색상
-      primary: OrbPalette.blue,
+      primary: OrbPalette.purple,
       //메인 색상의 글자 색상
       onPrimary: OrbPalette.white,
       //보조 색상
-      secondary: OrbPalette.lightBlue,
+      secondary: OrbPalette.lightPurple,
       //보조 색상의 글자 색상
       onSecondary: OrbPalette.white,
       //카드, 컨테이너 등의 배경색
@@ -101,11 +101,11 @@ class OrbTheme {
     brightness: Brightness.dark,
     colorScheme: const ColorScheme.dark(
       //메인 색상
-      primary: OrbPalette.blue,
+      primary: OrbPalette.purple,
       //메인 색상의 글자 색상
       onPrimary: OrbPalette.white,
       //보조 색상
-      secondary: OrbPalette.lightBlue,
+      secondary: OrbPalette.lightPurple,
       //보조 색상의 글자 색상
       onSecondary: OrbPalette.white,
       //카드, 컨테이너 등의 배경색

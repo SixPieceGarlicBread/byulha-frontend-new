@@ -30,7 +30,7 @@ class MainScreen extends ConsumerWidget {
           HomeScreen(), // 홈 화면
           SearchScreen(), // 검색 화면
           FavoriteScreen(), // 찜 목록 화면
-          ProfileScreen()
+          ProfileScreen() // 프로필 화면
 
           // 다른 화면들도 여기에 추가
         ],

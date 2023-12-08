@@ -44,6 +44,7 @@ dependencies:
   go_router: ^10.0.0
   another_flutter_splash_screen: ^1.2.0
   carousel_slider: ^4.2.1
+  permission_handler: ^11.1.0
 
 dev_dependencies:
   flutter_test:

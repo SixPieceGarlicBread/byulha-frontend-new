@@ -12,6 +12,7 @@ final repositoryProvider = Provider<Repository>((ref) => Repository(ref.read(dio
 class Repository {
 
   final Dio _dio;
+  String? accessToken;
   Repository(this._dio);
 
   Future<String> getSignupToken() async {
@@ -47,6 +48,7 @@ class Repository {
         'password': password,
       },
     );
+    accessToken = response.data['accessToken'];
     return Login.fromJson(response.data);
   }
 
@@ -103,7 +105,7 @@ class Repository {
       options: Options(
         contentType: 'multipart/form-data',
         headers: {
-          'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTcwMjE5MDcyNywidXNlcklkIjoiMTYiLCJpYXQiOjE3MDIxODg5Mjd9.XACBIaQ4ZW1r5j2-65jG_fbj72PqqvDNnNs5mZL__sY'
+          'Authorization' : 'Bearer $accessToken',
         },
       ),
     );

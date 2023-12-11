@@ -28,11 +28,10 @@ class MainScreen extends ConsumerWidget {
           ref.read(_currentIndexProvider.notifier).update((state) => value);
         },
         children: [
-          HomeScreen(), // 홈 화면
-          SearchScreen(), // 검색 화면
-          ImageRecognitionScreen(), // 이미지 인식 화면
-          FavoriteScreen(), // 찜 목록 화면
-          ProfileScreen() // 프로필 화면
+          const HomeScreen(), // 홈 화면
+          const SearchScreen(), // 검색 화면
+          const FavoriteScreen(), // 찜 목록 화면
+          const ProfileScreen() // 프로필 화면
 
           // 다른 화면들도 여기에 추가
         ],
@@ -41,14 +40,6 @@ class MainScreen extends ConsumerWidget {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "홈"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "검색"),
-          BottomNavigationBarItem(
-              icon: (Icon(
-                Icons.bubble_chart_rounded,
-                color: Color(0xff625a8b),
-                size: 40,
-                )
-              ),
-              label: "<AI조향사 리비>에게 추천받기"),
           BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "찜 목록"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "내 정보"),
         ],

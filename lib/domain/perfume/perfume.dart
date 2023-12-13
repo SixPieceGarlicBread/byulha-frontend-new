@@ -107,6 +107,26 @@ class PerfumeList {
     required this.last,
   });
 
+// class PerfumeMood {
+//   final int id;
+//   final String name;
+//   final String company;
+//   final double rating;
+//   final String forGender;
+//   final String thumbnailUrl;
+//   final String moods;
+//
+//   PerfumeMood ({
+//     required this.id,
+//     required this.name,
+//     required this.company,
+//     required this.rating,
+//     required this.forGender,
+//     required this.thumbnailUrl,
+//     required this.moods,
+//   });
+
+
   factory PerfumeList.fromJson(Map<String, dynamic> json) {
     List<Perfume> content = [];
     for (var item in json['content']) {

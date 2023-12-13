@@ -27,6 +27,7 @@ class MainScreen extends ConsumerWidget {
         onPageChanged: (value) {
           ref.read(_currentIndexProvider.notifier).update((state) => value);
         },
+
         children: [
           const HomeScreen(), // 홈 화면
           const SearchScreen(), // 검색 화면

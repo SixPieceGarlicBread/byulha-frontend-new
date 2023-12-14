@@ -13,18 +13,25 @@ import '../../../domain/perfume/perfume_list_provider.dart';
 import '../../../domain/perfume/perfume_provider.dart';
 
 enum MoodType {
-  androgynous(
-      'androgynous', '중성적임', '오늘의 당신은 중성적인 매력이 있군요!\n\n중성적인 당신에게 추천하는 향수는\n.\n.\n.'),
-  casual('casual', '캐주얼', '오늘의 당신은 캐주얼한 모습이 보이네요!\n\n캐주얼한 당신에게 추천하는 향수는\n.\n.\n.'),
-  cute('cute', '귀여움', '오늘의 당신은 안아주고 싶게 귀엽군요!\n\n귀여운 당신에게 추천하는 향수는\n.\n.\n.'),
-  elegant('elegant', '우아함', '오늘의 당신은 누구보다 우아하군요!\n\n우아한 당신에게 추천하는 향수는\n.\n.\n.'),
-  innocent('innocent', '순수함', '오늘의 당신은 유리구슬처럼 순수하군요!\n\n순수한 당신에게 추천하는 향수는\n.\n.\n.'),
-  manly('manly', '남성적임', '오늘의 당신은 강인하고 남성적이군요!\n\n남성적인 당신에게 추천하는 향수는\n.\n.\n.'),
-  profound('profound', '중후함', '오늘의 당신은 신사답고 중후하군요!\n\n중후한 당신에게 추천하는 향수는\n.\n.\n.'),
-  sensual('sensual', '감각적', '오늘의 당신은 디자이너만큼 감각적이군요!\n\n감각적인 당신에게 추천하는 향수는\n.\n.\n.'),
-  sexy('sexy', '섹시함', '오늘의 당신은 비욘세만큼 섹시하군요!\n\n섹시한 당신에게 추천하는 향수는\n.\n.\n.'),
-  sophisticated('sophisticated', '세련됨', '오늘의 당신은 명품처럼 세련됐군요!\n\n세련된 당신에게 추천하는 향수는\n.\n.\n.'),
-  sporty('sporty', '스포티함', '오늘의 당신은 운동선수처럼 스포티하군요!\n스포티한 당신에게 추천하는 향수는\n.\n.\n.');
+  androgynous('androgynous', '중성적임',
+      '오늘의 당신은 중성적인 매력이 있군요!\n중성적인 당신에게 추천하는 향수는...'),
+  casual(
+      'casual', '캐주얼', '오늘의 당신은 캐주얼한 모습이 보이네요!\n캐주얼한 당신에게 추천하는 향수는...'),
+  cute('cute', '귀여움', '오늘의 당신은 안아주고 싶게 귀엽군요!\n귀여운 당신에게 추천하는 향수는...'),
+  elegant(
+      'elegant', '우아함', '오늘의 당신은 누구보다 우아하군요!\n우아한 당신에게 추천하는 향수는...'),
+  innocent(
+      'innocent', '순수함', '오늘의 당신은 유리구슬처럼 순수하군요!\n순수한 당신에게 추천하는 향수는...'),
+  manly('manly', '남성적임', '오늘의 당신은 강인하고 남성적이군요!\n남성적인 당신에게 추천하는 향수는...'),
+  profound(
+      'profound', '중후함', '오늘의 당신은 신사답고 중후하군요!\n중후한 당신에게 추천하는 향수는...'),
+  sensual('sensual', '감각적',
+      '오늘의 당신은 디자이너만큼 감각적이군요!\n감각적인 당신에게 추천하는 향수는...'),
+  sexy('sexy', '섹시함', '오늘의 당신은 비욘세만큼 섹시하군요!\n섹시한 당신에게 추천하는 향수는...'),
+  sophisticated('sophisticated', '세련됨',
+      '오늘의 당신은 명품처럼 세련됐군요!\n세련된 당신에게 추천하는 향수는...'),
+  sporty(
+      'sporty', '스포티함', '오늘의 당신은 운동선수처럼 스포티하군요!\n스포티한 당신에게 추천하는 향수는...');
 
   final String nameEN;
   final String nameKO;
@@ -90,7 +97,6 @@ class _RecommendResultScreen extends ConsumerState {
                     .join(', '),
                 style: theme.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.bold,
-
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -110,7 +116,7 @@ class _RecommendResultScreen extends ConsumerState {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
-                height: 32,
+                height: 42,
               ),
               perfume.when(
                 data: (perfume) {
@@ -122,45 +128,54 @@ class _RecommendResultScreen extends ConsumerState {
                           child: IconButton(
                             onPressed: () {
                               setState(() {
-                                if (!favoritePerfumeList.map((e) => e.id)
+                                if (!favoritePerfumeList
+                                    .map((e) => e.id)
                                     .contains(perfumeList.perfumes.first.id)) {
                                   favoritePerfumeList
                                       .add(perfumeList.perfumes.first);
-                                  OrbSnackBar.show(context: context, message: "찜 목록에 추가되었습니다.", type: OrbSnackBarType.info);
-
+                                  OrbSnackBar.show(
+                                      context: context,
+                                      message: "찜 목록에 추가되었습니다.",
+                                      type: OrbSnackBarType.info);
                                 } else {
                                   favoritePerfumeList
                                       .remove(perfumeList.perfumes.first);
-                                  OrbSnackBar.show(context: context, message: "찜 목록에서 제거되었습니다.", type: OrbSnackBarType.info);
+                                  OrbSnackBar.show(
+                                      context: context,
+                                      message: "찜 목록에서 제거되었습니다.",
+                                      type: OrbSnackBarType.info);
                                 }
                               });
                             },
                             icon: favoritePerfumeList
-                                .map((e) => e.id)
-                                .contains(perfumeList.perfumes.first.id)
+                                    .map((e) => e.id)
+                                    .contains(perfumeList.perfumes.first.id)
                                 ? const Icon(
-                              Icons.favorite,
-                              color: Color(0xff625a8b),
-                            )
+                                    Icons.favorite,
+                                    color: Color(0xff625a8b),
+                                  )
                                 : const Icon(
-                              Icons.favorite_border,
-                              color: Color(0xff625a8b),
-                            ),
+                                    Icons.favorite_border,
+                                    color: Color(0xff625a8b),
+                                  ),
                           ),
                         ),
                       ),
                       Column(
                         children: [
-                          Text(
-                            perfume.name,
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24,
-                              color: const Color(0xff625a8b),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 27),
+                            child: Text(
+                              perfume.name,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24,
+                                color: const Color(0xff625a8b),
+                              ),
+                              textAlign: TextAlign.center,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
                           ),
                           Text(
                             perfume.company,
@@ -204,7 +219,8 @@ class _RecommendResultScreen extends ConsumerState {
                                   ),
                                   Expanded(
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         NoteChartBar(notes: perfume.notes),
                                         const SizedBox(
@@ -222,13 +238,15 @@ class _RecommendResultScreen extends ConsumerState {
                                                 ),
                                                 Text(
                                                   perfume.rating.toString(),
-                                                  style: theme.textTheme.bodyMedium
+                                                  style: theme
+                                                      .textTheme.bodyMedium
                                                       ?.copyWith(
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                   textAlign: TextAlign.center,
                                                   maxLines: 1,
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                               ],
                                             ),
@@ -334,7 +352,7 @@ class _RecommendResultScreen extends ConsumerState {
               OrbButton(
                 buttonText: '구매하기',
                 enabledBackgroundColor: Color(0xff454655),
-                onPressed: () async{
+                onPressed: () async {
                   launchUrl(Uri.parse(perfume.value!.perfumeUrl));
                 },
               ),
@@ -395,7 +413,8 @@ class _RecommendResultScreen extends ConsumerState {
                                 Column(
                                   children: [
                                     Text(
-                                      perfumeList.perfumes[index + 1].name+"\n",
+                                      perfumeList.perfumes[index + 1].name +
+                                          "\n",
                                       style:
                                           theme.textTheme.bodyMedium?.copyWith(
                                         fontWeight: FontWeight.bold,
@@ -426,12 +445,14 @@ class _RecommendResultScreen extends ConsumerState {
         loading: () => OrbShimmerContent(),
         error: (error, stackTrace) => OrbShimmerContent(),
       ),
-        submitButton: OrbButton(
-          buttonText: '다른 이미지로 추천받기',
-          onPressed: () async{
-            ref.read(routerProvider).pushReplacement(RouteInfo.imageRecognition.fullPath);
-          },
-        ),
+      submitButton: OrbButton(
+        buttonText: '다른 이미지로 추천받기',
+        onPressed: () async {
+          ref
+              .read(routerProvider)
+              .pushReplacement(RouteInfo.imageRecognition.fullPath);
+        },
+      ),
     );
   }
 }
@@ -452,7 +473,11 @@ class NoteChartBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                color: Color(i == 0 ? 0xff625a8b : i == 1 ? 0xffa8a8a8 : 0xffa7a8cd),
+                color: Color(i == 0
+                    ? 0xff625a8b
+                    : i == 1
+                        ? 0xffa8a8a8
+                        : 0xffa7a8cd),
                 width: double.parse(notes[i].value),
                 height: 12,
               ),

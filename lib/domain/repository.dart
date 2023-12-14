@@ -82,15 +82,11 @@ class Repository {
     return response.statusCode == 200;
   }
 
-  Future<PerfumeList> getPerfumeList(int page, int size) async {
+  Future<PerfumeBoard> getPerfumeBoard(int page, int size) async {
     final response = await _dio.get(
       '/perfume?page=$page&size=$size&sort=rating,desc',
     );
-    if (response.statusCode == 200) {
-      return PerfumeList.fromJson(response.data);
-    } else {
-      throw Exception('Failed to load perfumes');
-    }
+    return PerfumeBoard.fromJson(response.data);
   }
 
   Future<PerfumeList> getRecommendedPerfumeList(List<XFile> images) async{
@@ -98,7 +94,7 @@ class Repository {
       e.path,
     )).toList();
     final response = await _dio.post(
-      '/user/upload/image-test?page=0&size=20',
+      '/user/upload/image?page=0&size=20',
       data: FormData.fromMap({
         'images': files,
       }),

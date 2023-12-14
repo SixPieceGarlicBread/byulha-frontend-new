@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taba/screen/login/login_screen.dart';
+import 'package:taba/utils/theme_provider.dart';
 
 import '../../modules/orb/components/components.dart';
 
@@ -22,6 +23,7 @@ class _ProfileScreen extends ConsumerState<ProfileScreen> {
 
 // }
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return OrbScaffold(
       orbAppBar: OrbAppBar(
         title: '프로필',
@@ -70,6 +72,29 @@ class _ProfileScreen extends ConsumerState<ProfileScreen> {
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  
+                  Text('다크모드', style: theme.textTheme.titleSmall),
+                  Switch(
+                    value: ref.watch(themeModeProvider) == ThemeMode.dark,
+                    onChanged: (value) {
+                      // 다크모드 기능을 구현하세요.
+                      ref.read(themeModeProvider.notifier).update((state) {
+                        if (state == ThemeMode.dark) {
+                          return ThemeMode.light;
+                        } else {
+                          return ThemeMode.dark;
+                        }
+                      });
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
         ),

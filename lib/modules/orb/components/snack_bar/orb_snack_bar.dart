@@ -38,7 +38,7 @@ class OrbSnackBar {
         // TODO: Handle this case.
         OrbSnackBarType.info => const Icon(
             Icons.info,
-            color: Colors.blue,
+            color: Color(0xff625a8b),
           ),
         // TODO: Handle this case.
         OrbSnackBarType.warning => const Icon(

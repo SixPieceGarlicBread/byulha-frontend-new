@@ -62,6 +62,18 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "device_info_plus",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/device_info_plus-9.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "device_info_plus_platform_interface",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/device_info_plus_platform_interface-7.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dio",
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/dio-5.3.4",
       "packageUri": "lib/",
@@ -470,6 +482,54 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "url_launcher",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/url_launcher-6.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "url_launcher_android",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/url_launcher_android-6.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "url_launcher_ios",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/url_launcher_ios-6.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "url_launcher_linux",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/url_launcher_linux-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "url_launcher_macos",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/url_launcher_macos-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "url_launcher_platform_interface",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/url_launcher_platform_interface-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "url_launcher_web",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/url_launcher_web-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "url_launcher_windows",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/url_launcher_windows-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/vector_math-2.1.4",
       "packageUri": "lib/",
@@ -488,6 +548,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "win32_registry",
+      "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/win32_registry-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "xdg_directories",
       "rootUri": "file:///Users/leo/.pub-cache/hosted/pub.dev/xdg_directories-1.0.3",
       "packageUri": "lib/",
@@ -500,7 +566,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-08T08:31:28.873280Z",
+  "generated": "2023-12-14T08:35:51.174948Z",
   "generator": "pub",
   "generatorVersion": "3.2.2"
 }

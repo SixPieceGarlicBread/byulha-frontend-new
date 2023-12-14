@@ -4,7 +4,7 @@ typedef OnIndexChanged = void Function(int index);
 
 class OrbBottomNavigationBar extends StatelessWidget {
 
-  final List<BottomNavigationBarItem> items;
+  final List<Widget> items;
   final OnIndexChanged? onIndexChanged;
   final int? currentIndex;
 
@@ -47,13 +47,15 @@ class OrbBottomNavigationBar extends StatelessWidget {
               ),
             ],
           ),
-          child: BottomNavigationBar(
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            type: BottomNavigationBarType.fixed,
-            onTap: (value) => onIndexChanged?.call(value),
-            currentIndex: currentIndex ?? 0,
-            items: items,
+          child: BottomAppBar(
+            height: 48,
+            notchMargin: 8,
+            shape: const CircularNotchedRectangle(),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: items,
+            )
           ),
         ),
       ),

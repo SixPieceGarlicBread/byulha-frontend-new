@@ -10,12 +10,13 @@ import '../../routes/router_path.dart';
 import '../../routes/router_provider.dart';
 
 final recommendedPerfumeListProvider =
-    AsyncNotifierProvider<RecommendedPerfumeListNotifier, PerfumeList>(
+    AsyncNotifierProvider.autoDispose<RecommendedPerfumeListNotifier, PerfumeList>(
         () => RecommendedPerfumeListNotifier());
 
-class RecommendedPerfumeListNotifier extends AsyncNotifier<PerfumeList> {
+class RecommendedPerfumeListNotifier extends AutoDisposeAsyncNotifier<PerfumeList> {
   // 페이지 번호와 한 페이지당 항목 수를 매개변수로 받는 getPerfumeList 함수
   void getPerfumeList(List<XFile> images) async {
+    state = AsyncLoading();
     state = await AsyncValue.guard(
         () => ref.read(repositoryProvider).getRecommendedPerfumeList(images));
     ref
@@ -34,20 +35,20 @@ class RecommendedPerfumeListNotifier extends AsyncNotifier<PerfumeList> {
 final favoritePerfumeListProvider = StateProvider<List<Perfume>>((ref) => []);
 
 final perfumeListProvider =
-    AsyncNotifierProvider<PerfumeListNotifier, PerfumeList>(
+    AsyncNotifierProvider<PerfumeListNotifier, PerfumeBoard>(
         () => PerfumeListNotifier());
 
-class PerfumeListNotifier extends AsyncNotifier<PerfumeList> {
+class PerfumeListNotifier extends AsyncNotifier<PerfumeBoard> {
   // 페이지 번호와 한 페이지당 항목 수를 매개변수로 받는 getPerfumeList 함수
   void getPerfumeList(int page, int size) async {
     state = await AsyncValue.guard(
-        () => ref.read(repositoryProvider).getPerfumeList(page, size));
+        () => ref.read(repositoryProvider).getPerfumeBoard(page, size));
   }
 
   // build 메서드에서 첫 페이지의 데이터를 가져옵니다.
   // 이 예시에서는 첫 페이지를 0으로 가정하고, 한 페이지당 10개의 항목을 가져옵니다.
   @override
-  FutureOr<PerfumeList> build() async {
+  FutureOr<PerfumeBoard> build() async {
     getPerfumeList(0, 10); // 첫 페이지 데이터 로드
     /*
     state = AsyncValue.data(PerfumeList(

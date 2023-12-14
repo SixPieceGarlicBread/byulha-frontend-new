@@ -1,10 +1,10 @@
 //perfume.dart
 
-class PerfumeNote {
+class PerfumeData {
   final String name;
   final String value;
 
-  PerfumeNote({
+  PerfumeData({
     required this.name,
     required this.value,
   });
@@ -17,10 +17,12 @@ class PerfumeDetail {
   final String forGender;
   final String perfumeUrl;
   final String perfumeImage;
-  final List<PerfumeNote> notes;
+  final List<PerfumeData> notes;
   final String sillage;
   final String longevity;
   final String priceValue;
+  final String perfumeDetail;
+
   //final String perfumeDetail;
 
   PerfumeDetail({
@@ -34,7 +36,7 @@ class PerfumeDetail {
     required this.sillage,
     required this.longevity,
     required this.priceValue,
-    //required this.perfumeDetail,
+    required this.perfumeDetail,
   });
 
   factory PerfumeDetail.fromJson(Map<String, dynamic> json) {
@@ -45,14 +47,18 @@ class PerfumeDetail {
       forGender: json['forGender'],
       perfumeUrl: json['perfumeUrl'],
       perfumeImage: json['perfumeImage'],
-      notes: (json['notes'] as List).map((e) => PerfumeNote(
-        name: e.toString().split(":")[0],
-        value: e.toString().split(":")[1],
-      ),).toList(),
+      notes: (json['notes'] as List)
+          .map(
+            (e) => PerfumeData(
+              name: e.toString().split(":")[0],
+              value: e.toString().split(":")[1],
+            ),
+          )
+          .toList(),
       sillage: json['sillage'],
       longevity: json['longevity'],
       priceValue: json['priceValue'],
-      //perfumeDetail: json['perfumeDetail'] ?? "상세설명 입니다.",
+      perfumeDetail: json['perfumeDetail'],
     );
   }
 }
@@ -64,6 +70,7 @@ class Perfume {
   final double rating;
   final String forGender;
   final String thumbnailUrl;
+  final List<PerfumeData>? notes;
 
   Perfume({
     required this.id,
@@ -72,6 +79,7 @@ class Perfume {
     required this.rating,
     required this.forGender,
     required this.thumbnailUrl,
+    this.notes,
   });
 
   factory Perfume.fromJson(Map<String, dynamic> json) {
@@ -82,11 +90,31 @@ class Perfume {
       rating: json['rating'],
       forGender: json['forGender'],
       thumbnailUrl: json['thumbnailUrl'],
+      notes: (json['notes'] as List?)
+          ?.map(
+            (e) => PerfumeData(
+              name: e.toString().split(":")[0],
+              value: e.toString().split(":")[1],
+            ),
+          )
+          .toList(),
+    );
+  }
+
+  factory Perfume.fromPerfumeDetail(int id, PerfumeDetail perfumeDetail) {
+    return Perfume(
+      id: id,
+      name: perfumeDetail.name,
+      company: perfumeDetail.company,
+      rating: perfumeDetail.rating,
+      forGender: perfumeDetail.forGender,
+      thumbnailUrl: perfumeDetail.perfumeImage,
+      notes: perfumeDetail.notes,
     );
   }
 }
 
-class PerfumeList {
+class PerfumeBoard {
   final List<Perfume> content;
   final bool hasNext;
   final int totalPages;
@@ -96,7 +124,7 @@ class PerfumeList {
   final bool first;
   final bool last;
 
-  PerfumeList({
+  PerfumeBoard({
     required this.content,
     required this.hasNext,
     required this.totalPages,
@@ -107,32 +135,12 @@ class PerfumeList {
     required this.last,
   });
 
-// class PerfumeMood {
-//   final int id;
-//   final String name;
-//   final String company;
-//   final double rating;
-//   final String forGender;
-//   final String thumbnailUrl;
-//   final String moods;
-//
-//   PerfumeMood ({
-//     required this.id,
-//     required this.name,
-//     required this.company,
-//     required this.rating,
-//     required this.forGender,
-//     required this.thumbnailUrl,
-//     required this.moods,
-//   });
-
-
-  factory PerfumeList.fromJson(Map<String, dynamic> json) {
+  factory PerfumeBoard.fromJson(Map<String, dynamic> json) {
     List<Perfume> content = [];
     for (var item in json['content']) {
       content.add(Perfume.fromJson(item));
     }
-    return PerfumeList(
+    return PerfumeBoard(
       content: content,
       hasNext: json['hasNext'],
       totalPages: json['totalPages'],
@@ -141,6 +149,34 @@ class PerfumeList {
       size: json['size'],
       first: json['first'],
       last: json['last'],
+    );
+  }
+}
+
+class PerfumeList {
+  final List<Perfume> perfumes;
+  final List<PerfumeData> moods;
+
+  PerfumeList({
+    required this.perfumes,
+    required this.moods,
+  });
+
+  factory PerfumeList.fromJson(Map<String, dynamic> json) {
+    List<Perfume> content = [];
+    for (var item in json['perfumes']) {
+      content.add(Perfume.fromJson(item));
+    }
+    return PerfumeList(
+      perfumes: content,
+      moods: (json['moods'] as List)
+          .map(
+            (e) => PerfumeData(
+              name: e.toString().split(":")[0],
+              value: e.toString().split(":")[1],
+            ),
+          )
+          .toList(),
     );
   }
 }

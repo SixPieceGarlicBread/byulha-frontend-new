@@ -104,6 +104,7 @@ class _LoginScreen extends ConsumerState<LoginScreen> {
       ),
       submitButton: OrbButton(
         onPressed: () async {
+
           if (!formKey.currentState!.validate()) {
             return;
           }

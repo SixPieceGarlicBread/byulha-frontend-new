@@ -46,6 +46,11 @@ class RouteInfo {
     path: 'recommendResult',
     fullPath: '${home.fullPath}/recommendResult',
   );
+  static RouteData perfumeDetail = RouteData(
+    name: 'perfumeDetail',
+    path: 'perfumeDetail',
+    fullPath: '${home.fullPath}/perfumeDetail',
+  );
   //profile
   static RouteData profile = RouteData(
     name: 'profile',

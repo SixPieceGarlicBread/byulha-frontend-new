@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:taba/routes/router_path.dart';
+import 'package:taba/routes/router_provider.dart';
 import 'package:taba/screen/main/home/home_screen.dart';
 import 'package:taba/screen/main/profile_screen.dart';
 import 'package:taba/screen/main/search_screen.dart';
@@ -27,7 +29,6 @@ class MainScreen extends ConsumerWidget {
         onPageChanged: (value) {
           ref.read(_currentIndexProvider.notifier).update((state) => value);
         },
-
         children: [
           const HomeScreen(), // 홈 화면
           const SearchScreen(), // 검색 화면
@@ -38,17 +39,42 @@ class MainScreen extends ConsumerWidget {
         ],
       ),
       bottomNavigationBar: OrbBottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "홈"),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "검색"),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "찜 목록"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "내 정보"),
+        items: [
+          IconButton(
+            onPressed: () {
+              ref.read(pageControllerProvider).jumpToPage(0);
+            },
+            icon: Icon(Icons.home_outlined),
+          ),
+          IconButton(
+            onPressed: () {
+              ref.read(pageControllerProvider).jumpToPage(1);
+            },
+            icon: Icon(Icons.search),
+          ),
+          SizedBox.shrink(),
+          IconButton(
+            onPressed: () {
+              ref.read(pageControllerProvider).jumpToPage(2);
+            },
+            icon: Icon(Icons.favorite_border),
+          ),
+          IconButton(
+            onPressed: () {
+              ref.read(pageControllerProvider).jumpToPage(3);
+            },
+            icon: Icon(Icons.person_outline),
+          ),
         ],
-        onIndexChanged: (value) {
-          ref.read(pageControllerProvider).jumpToPage(value);
-        },
-        currentIndex: ref.watch(_currentIndexProvider),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ref.read(routerProvider).push(RouteInfo.imageRecognition.fullPath);
+        },
+        child: const Icon(Icons.lightbulb),
+        shape: const CircleBorder(),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

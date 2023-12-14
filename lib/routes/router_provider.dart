@@ -9,6 +9,7 @@ import 'package:taba/screen/main/home/home_screen.dart';
 import 'package:taba/screen/splash/splash_screen.dart';
 
 import '../screen/main/home/image_recognition_screen.dart';
+import '../screen/main/home/perfume_detail.dart';
 import '../screen/main/home/recommend_result_screen.dart';
 import '../screen/main/main_screen.dart';
 import '../screen/main/profile_screen.dart';
@@ -39,6 +40,11 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>(
                   path: RouteInfo.recommendResult.path,
                   builder: (context, state) =>
                       RecommendResultScreen(key: state.pageKey),
+                ),
+                GoRoute(
+                  path: RouteInfo.perfumeDetail.path,
+                  builder: (context, state) =>
+                      PerfumeDetailScreen(key: state.pageKey, id: state.extra as int),
                 ),
               ],
             ),

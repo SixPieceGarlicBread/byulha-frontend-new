@@ -5,12 +5,13 @@ import 'package:taba/domain/perfume/perfume.dart';
 import 'package:taba/domain/perfume/perfume_list_provider.dart';
 import 'package:taba/modules/orb/components/components.dart';
 import 'package:taba/routes/router_provider.dart';
+import 'package:taba/screen/main/home/perfume_detail.dart';
 
 import '../../../routes/router_path.dart';
 
 final currentPageProvider = StateProvider<int>((ref) => 0);
 
-class HomeScreen extends ConsumerStatefulWidget{
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -18,19 +19,20 @@ class HomeScreen extends ConsumerStatefulWidget{
 }
 
 class _HomeScreen extends ConsumerState {
-
   final PageController _pageController = PageController();
   final int _totalAds = 2; // 총 광고 페이지 수
 
   @override
   Widget build(BuildContext context) {
-    final AsyncValue<PerfumeList> perfumeList = ref.watch(perfumeListProvider);
+    final AsyncValue<PerfumeBoard> perfumeBoard =
+        ref.watch(perfumeListProvider);
     final favoritePerfumeList = ref.watch(favoritePerfumeListProvider);
     final ThemeData theme = Theme.of(context);
 
     return OrbScaffold(
       orbAppBar: const OrbAppBar(
         title: "PURPLE",
+        trailing: Icon(Icons.menu),
       ),
       shrinkWrap: true,
       body: Column(
@@ -89,8 +91,8 @@ class _HomeScreen extends ConsumerState {
             child: GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: perfumeList.when(
-                data: (perfumeList) => perfumeList.size,
+              itemCount: perfumeBoard.when(
+                data: (perfumeList) => perfumeList.content.length,
                 loading: () => 10,
                 error: (error, stackTrace) => 10,
               ),
@@ -99,7 +101,7 @@ class _HomeScreen extends ConsumerState {
                 childAspectRatio: 0.7,
               ),
               itemBuilder: (BuildContext context, int index) {
-                return perfumeList.when(
+                return perfumeBoard.when(
                   data: (perfumeList) {
                     return Stack(
                       fit: StackFit.expand,
@@ -126,10 +128,13 @@ class _HomeScreen extends ConsumerState {
                               ),
                               child: InkWell(
                                 onTap: () {
+                                  ref.read(routerProvider).push(
+                                      RouteInfo.perfumeDetail.fullPath,
+                                      extra: perfumeList.content[index].id);
                                   //
                                 },
                                 child: Image.network(
-                                  perfumeList.content[index].thumbnailUrl!,
+                                  perfumeList.content[index].thumbnailUrl,
                                   fit: BoxFit.fill,
                                 ),
                               ),
@@ -165,15 +170,22 @@ class _HomeScreen extends ConsumerState {
                             child: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  if(favoritePerfumeList.contains(perfumeList.content[index])){
-                                    favoritePerfumeList.remove(perfumeList.content[index]);
-                                  }else{
-                                    favoritePerfumeList.add(perfumeList.content[index]);
+                                  if (!favoritePerfumeList.map((e) => e.id)
+                                      .contains(perfumeList.content[index].id)) {
+                                    favoritePerfumeList
+                                        .add(perfumeList.content[index]);
+                                    OrbSnackBar.show(context: context, message: "즐겨찾기에 추가되었습니다.", type: OrbSnackBarType.info);
+
+                                  } else {
+                                    favoritePerfumeList
+                                        .remove(perfumeList.content[index]);
+                                    OrbSnackBar.show(context: context, message: "즐겨찾기서 제거되었습니다.", type: OrbSnackBarType.info);
                                   }
                                 });
                               },
                               icon: favoritePerfumeList
-                                      .contains(perfumeList.content[index])
+                                      .map((e) => e.id)
+                                      .contains(perfumeList.content[index].id)
                                   ? const Icon(
                                       Icons.favorite,
                                       color: Color(0xff625a8b),

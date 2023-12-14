@@ -452,7 +452,7 @@ class NoteChartBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                color: Color(i == 0 ? 0xff625a8b : i == 1 ? 0xffa8a8a8 : 0xffe5e5e5),
+                color: Color(i == 0 ? 0xff625a8b : i == 1 ? 0xffa8a8a8 : 0xffa7a8cd),
                 width: double.parse(notes[i].value),
                 height: 12,
               ),

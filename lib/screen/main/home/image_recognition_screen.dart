@@ -138,21 +138,21 @@ class _ImageRecognitionScreenState
             message: '리비에게 10초만 시간을 주세요!',
             type: OrbSnackBarType.info,
           );
-          Future.delayed(Duration(seconds: 3), () {
+          Future.delayed(Duration(seconds: 2), () {
             OrbSnackBar.show(
               context: context,
               message: '리비가 이미지를 유심히 관찰하고 있습니다.',
               type: OrbSnackBarType.info,
             );
           });
-          Future.delayed(Duration(seconds: 6), () {
+          Future.delayed(Duration(seconds: 5), () {
             OrbSnackBar.show(
               context: context,
               message: '리비가 향수를 찾고 있습니다.',
               type: OrbSnackBarType.info,
             );
           });
-          Future.delayed(Duration(seconds: 9), () {
+          Future.delayed(Duration(seconds: 7), () {
             OrbSnackBar.show(
               context: context,
               message: '리비가 향수를 가져왔어요!',

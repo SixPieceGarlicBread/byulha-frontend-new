@@ -145,7 +145,7 @@ class _HomeScreen extends ConsumerState {
                             Column(
                               children: [
                                 Text(
-                                  perfumeList.content[index].company,
+                                  perfumeList.content[index].name,
                                   style: theme.textTheme.bodyMedium?.copyWith(
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -154,7 +154,7 @@ class _HomeScreen extends ConsumerState {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 Text(
-                                  perfumeList.content[index].name,
+                                  perfumeList.content[index].company,
                                   style: theme.textTheme.bodyMedium,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
@@ -170,18 +170,22 @@ class _HomeScreen extends ConsumerState {
                             child: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  if (favoritePerfumeList
-                                      .contains(perfumeList.content[index])) {
-                                    favoritePerfumeList
-                                        .remove(perfumeList.content[index]);
-                                  } else {
+                                  if (!favoritePerfumeList.map((e) => e.id)
+                                      .contains(perfumeList.content[index].id)) {
                                     favoritePerfumeList
                                         .add(perfumeList.content[index]);
+                                    OrbSnackBar.show(context: context, message: "찜 목록에 추가되었습니다.", type: OrbSnackBarType.info);
+
+                                  } else {
+                                    favoritePerfumeList
+                                        .remove(perfumeList.content[index]);
+                                    OrbSnackBar.show(context: context, message: "찜 목록에서 제거되었습니다.", type: OrbSnackBarType.info);
                                   }
                                 });
                               },
                               icon: favoritePerfumeList
-                                      .contains(perfumeList.content[index])
+                                      .map((e) => e.id)
+                                      .contains(perfumeList.content[index].id)
                                   ? const Icon(
                                       Icons.favorite,
                                       color: Color(0xff625a8b),

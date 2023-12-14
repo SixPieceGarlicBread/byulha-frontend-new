@@ -48,6 +48,7 @@ class _SplashScreen extends ConsumerState<SplashScreen> with TickerProviderState
               color: Color(0xff625a8b),
             ),
           ),
+
         ),
       ),
     );

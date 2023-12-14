@@ -113,9 +113,9 @@ class _ImageRecognitionScreenState
                     height: 400,
                     fit: BoxFit.fill,
                   ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
             OrbButton(
-              buttonText: '<리비>에게 줄 이미지 선택하기',
+              buttonText: '이미지 선택하기',
               onPressed: () async {
                 await _pickImage();
               },
@@ -131,11 +131,31 @@ class _ImageRecognitionScreenState
               .read(recommendedPerfumeListProvider.notifier)
               .getPerfumeList(images);
 
+          // 첫 번째 스낵바 띄우기
+          // 첫 번째 OrbSnackBar 띄우기
           OrbSnackBar.show(
             context: context,
-            message: '이미지로 시향을 시작합니다.',
+            message: '리비에게 10초만 시간을 주세요!',
             type: OrbSnackBarType.info,
           );
+
+// 일정 시간이 지난 후에 두 번째 OrbSnackBar 띄우기
+          Future.delayed(Duration(seconds: 3), () {
+            OrbSnackBar.show(
+              context: context,
+              message: '리비가 이미지를 유심히 관찰하고 있습니다.',
+              type: OrbSnackBarType.info,
+            );
+          });
+          Future.delayed(Duration(seconds: 6), () {
+            OrbSnackBar.show(
+              context: context,
+              message: '리비가 향수를 꺼내서 오고 있습니다.',
+              type: OrbSnackBarType.info,
+            );
+          });
+
+
         },
       ),
     );

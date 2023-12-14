@@ -78,12 +78,11 @@ class _ProfileScreen extends ConsumerState<ProfileScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  
+
                   Text('다크모드', style: theme.textTheme.titleSmall),
                   Switch(
                     value: ref.watch(themeModeProvider) == ThemeMode.dark,
                     onChanged: (value) {
-                      // 다크모드 기능을 구현하세요.
                       ref.read(themeModeProvider.notifier).update((state) {
                         if (state == ThemeMode.dark) {
                           return ThemeMode.light;

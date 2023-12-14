@@ -1,3 +1,4 @@
+//perfume_detail.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taba/modules/orb/components/components.dart';
@@ -7,7 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../domain/perfume/perfume.dart';
 import '../../../domain/perfume/perfume_list_provider.dart';
 import '../../../domain/perfume/perfume_provider.dart';
-// 만약 다른 파일에 PerfumeDetail 클래스가 정의되어 있다면, 해당 파일을 import 해야 합니다.
+
 
 class PerfumeDetailScreen extends ConsumerStatefulWidget {
   final int id;
@@ -34,6 +35,15 @@ class _PerfumeDetailScreen extends ConsumerState<PerfumeDetailScreen> {
     final ThemeData theme = Theme.of(context);
 
     return OrbScaffold(
+      orbAppBar: OrbAppBar(
+        title: "향수 상세 정보",
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: (){
+            Navigator.pop(context);
+          },
+        ),
+      ),
       shrinkWrap: true,
       body: perfumeDetail.when(
         data: (perfume) {
@@ -52,10 +62,10 @@ class _PerfumeDetailScreen extends ConsumerState<PerfumeDetailScreen> {
                           setState(() {
                             if(!favoritePerfumeList.map((e) => e.id).toList().contains(widget.id)){
                               ref.read(favoritePerfumeListProvider).add(Perfume.fromPerfumeDetail(widget.id,perfume));
-                              OrbSnackBar.show(context: context, message: "즐겨찾기에 추가되었습니다.", type: OrbSnackBarType.info);
+                              OrbSnackBar.show(context: context, message: "찜 목록에 추가되었습니다.", type: OrbSnackBarType.info);
                             }else{
                               ref.read(favoritePerfumeListProvider).removeWhere((element) => element.id == widget.id);
-                              OrbSnackBar.show(context: context, message: "즐겨찾기에서 제거되었습니다.", type: OrbSnackBarType.info);
+                              OrbSnackBar.show(context: context, message: "찜 목록에서 제거되었습니다.", type: OrbSnackBarType.info);
 
                             }
                           });
@@ -220,7 +230,7 @@ class _PerfumeDetailScreen extends ConsumerState<PerfumeDetailScreen> {
                       Column(
                         children: [
                           Text(
-                            "상세설명",
+                            "글로 시향하기",
                             style: theme.textTheme.titleMedium
                                 ?.copyWith(fontWeight: FontWeight.bold),
                           ),
@@ -252,5 +262,3 @@ class _PerfumeDetailScreen extends ConsumerState<PerfumeDetailScreen> {
     );
   }
 }
-
-// NoteChartBar 위젯을 여기에 구현할 수 있습니다.

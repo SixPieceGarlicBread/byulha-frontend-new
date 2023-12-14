@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		LGobsoo5Q9Fdq5lVngehRAx4c5A=
+		MDQGkZnDZRdOk9ICMAYjgdHXD2g=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		rCQH0Z2KCFT5GmKGIKUECfCvk/E=
+		i4/9+LoZHAkHVZ3XfaUd6PyhCtU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		0ezrvU9ZSThAdguePZDCly+Fxt8=
+		YWGNR3WgpyBD66s0ApVyRmpQFQ0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/androgynous.png</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		OYwT8/UDsOYb4+gOhsBiQfrXfNE=
+		Du+KfwIQF/ZcchC0Cp+UC6k6QGA=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/%E1%84%81%E1%85%A9%E1%84%87%E1%85%AE%E1%84%80%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%89%E1%85%B3.jpeg</key>
 		<data>
@@ -162,19 +162,19 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/home_screen.dart</key>
 		<data>
-		eiV1eZeU0rvZkUntwqK5e2ylYTg=
+		EtMyWRPh1i15sGPfqyiqn3/EVMY=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/image_recognition_screen.dart</key>
 		<data>
-		WNujrXrm+Dls7CsCx5LXe6VqrEE=
+		liWd3rHlomn61nLSCitT6DUm5dk=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/perfume_detail.dart</key>
 		<data>
-		ipNhSSdduZHw6yNejkVWxXJvQIA=
+		6tO57iFMVLTNlBF9UAK29mgq7Bs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/recommend_result_screen.dart</key>
 		<data>
-		P9Q2llB0LVBICe4nuTOGFXtZRto=
+		0CONXzF9fc7Serf6/cYLlCO8pzs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -271,6 +271,18 @@
 		<key>Frameworks/Flutter.framework/icudtl.dat</key>
 		<data>
 		Ubat0LvE4LUgCwHeyl0Anx2vnzk=
+		</data>
+		<key>Frameworks/device_info_plus.framework/Info.plist</key>
+		<data>
+		Wuv8Hg5zVMRj5rbl9VPcf2F0th0=
+		</data>
+		<key>Frameworks/device_info_plus.framework/_CodeSignature/CodeResources</key>
+		<data>
+		n310lLYPp3eafro7leQV9spqONY=
+		</data>
+		<key>Frameworks/device_info_plus.framework/device_info_plus</key>
+		<data>
+		frWFI2OqnCZCcjksoE2voF5ou0I=
 		</data>
 		<key>Frameworks/flutter_secure_storage.framework/Info.plist</key>
 		<data>
@@ -405,7 +417,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nsWHpKdKYoHwEjW1zE8TiPuXG5JOMFMmDPxxaiiV90Q=
+			qS+bmRkOcgg0JlzAfNDAXdvw3p3x2RF0lri4afcHLp4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -419,7 +431,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6R7FB44SPqJs/I6zsxQErPktMOl0TcSWmi8tOo3z3gI=
+			0dH79wo10D6A0tsq9VeiOa6ayxaKiTgJiA2Exl17e3M=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -447,7 +459,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uHHARGmq3Xw2ifhV/3yd+6X7kGDeJZuoQhSIJnE/F6U=
+			pmDPOFAic+gK0wwypwFSDsPVENtt3i4128SCWIfjleI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/androgynous.png</key>
@@ -573,7 +585,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nuN+PrGvu8H/qDI28BXzyPyl5CLaAGBqeY9kK6YpYHE=
+			KSFjW1X5nY4XPEdaITrAuRGWlw/8ZPwJ98d6ToCnztA=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/%E1%84%81%E1%85%A9%E1%84%87%E1%85%AE%E1%84%80%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%89%E1%85%B3.jpeg</key>
@@ -608,28 +620,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bh/EsZ1hZz+JrYFnBS76chofPAyDbw+uFy70L7q+LYg=
+			XEBRGuXwkQlzqFdJajUNj2hN1INg92Kg0X5l2lYc6EU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/image_recognition_screen.dart</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8ZFpngYkw0talSPSOF8x7NKigriWbKfvBRlnT0d9G28=
+			5184acjeUqwMom1r3TYchdoYuQG4VnmejRxR20ux6+k=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/perfume_detail.dart</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jMqoLIoWRqUOVAjD9uaQmE8lnlTi3nDJwvEdwZW00Bw=
+			k7un3jC41eBCM0Po8+BpXMNN3qRu9VMcVyHS17o0SJU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/recommend_result_screen.dart</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			50+iQnDfxlviBACqobEIjt7R/cWZQ/g3sRx8pyzakiQ=
+			8qzkhELTT1aCTu5Sx8daZ5m6DjHEsPkO+aIfP6GQl1M=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -798,6 +810,27 @@
 			<key>hash2</key>
 			<data>
 			ZepykIMSjfzhwAcmupMrkaqvXkhza1ZE3TdHjl8odaw=
+			</data>
+		</dict>
+		<key>Frameworks/device_info_plus.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mK2j9Z46afpP1ugzBqk7E5RCzACEYrgGXwSGEIDTTNo=
+			</data>
+		</dict>
+		<key>Frameworks/device_info_plus.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Iktzq7n835/8F2cYWHpMJmkSis30SoKTmSxydAuTl9Q=
+			</data>
+		</dict>
+		<key>Frameworks/device_info_plus.framework/device_info_plus</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			drIpF5c9sbc0iwDgGvAJHQNuKLyUu1LDfggJZTYQWwc=
 			</data>
 		</dict>
 		<key>Frameworks/flutter_secure_storage.framework/Info.plist</key>

@@ -14,17 +14,17 @@ import '../../../domain/perfume/perfume_provider.dart';
 
 enum MoodType {
   androgynous(
-      'androgynous', '중성적임', '오늘의 당신은 중성적이군요!\n\n중성적인 당신에게 추천하는 향수는\n.\n.\n.'),
-  casual('casual', '캐주얼', '오늘의 당신은 캐주얼하군요!\n\n캐주얼한 당신에게 추천하는 향수는\n.\n.\n.'),
-  cute('cute', '귀여움', '오늘의 당신은 귀엽군요!\n귀여운 당신에게 추천하는 향수는...'),
-  elegant('elegant', '우아함', '오늘의 당신은 우아하군요!\n우아한 당신에게 추천하는 향수는...'),
-  innocent('innocent', '순수함', '오늘의 당신은 순수하군요!\n순수한 당신에게 추천하는 향수는...'),
-  manly('manly', '남성적임', '오늘의 당신은 남성적이군요!\n남성적인 당신에게 추천하는 향수는...'),
-  profound('profound', '중후함', '오늘의 당신은 중후하군요!\n중후한 당신에게 추천하는 향수는...'),
-  sensual('sensual', '감각적', '오늘의 당신은 감각적이군요!\n감각적인 당신에게 추천하는 향수는...'),
-  sexy('sexy', '섹시함', '오늘의 당신은 섹시하군요!\n섹시한 당신에게 추천하는 향수는...'),
-  sophisticated('sophisticated', '세련됨', '오늘의 당신은 세련됐군요!\n세련된 당신에게 추천하는 향수는...'),
-  sporty('sporty', '스포티함', '오늘의 당신은 스포티하군요!\n스포티한 당신에게 추천하는 향수는...');
+      'androgynous', '중성적임', '오늘의 당신은 중성적인 매력이 있군요!\n\n중성적인 당신에게 추천하는 향수는\n.\n.\n.'),
+  casual('casual', '캐주얼', '오늘의 당신은 캐주얼한 모습이 보이네요!\n\n캐주얼한 당신에게 추천하는 향수는\n.\n.\n.'),
+  cute('cute', '귀여움', '오늘의 당신은 안아주고 싶게 귀엽군요!\n\n귀여운 당신에게 추천하는 향수는\n.\n.\n.'),
+  elegant('elegant', '우아함', '오늘의 당신은 누구보다 우아하군요!\n\n우아한 당신에게 추천하는 향수는\n.\n.\n.'),
+  innocent('innocent', '순수함', '오늘의 당신은 유리구슬처럼 순수하군요!\n\n순수한 당신에게 추천하는 향수는\n.\n.\n.'),
+  manly('manly', '남성적임', '오늘의 당신은 강인하고 남성적이군요!\n\n남성적인 당신에게 추천하는 향수는\n.\n.\n.'),
+  profound('profound', '중후함', '오늘의 당신은 신사답고 중후하군요!\n\n중후한 당신에게 추천하는 향수는\n.\n.\n.'),
+  sensual('sensual', '감각적', '오늘의 당신은 디자이너만큼 감각적이군요!\n\n감각적인 당신에게 추천하는 향수는\n.\n.\n.'),
+  sexy('sexy', '섹시함', '오늘의 당신은 비욘세만큼 섹시하군요!\n\n섹시한 당신에게 추천하는 향수는\n.\n.\n.'),
+  sophisticated('sophisticated', '세련됨', '오늘의 당신은 명품처럼 세련됐군요!\n\n세련된 당신에게 추천하는 향수는\n.\n.\n.'),
+  sporty('sporty', '스포티함', '오늘의 당신은 운동선수처럼 스포티하군요!\n스포티한 당신에게 추천하는 향수는\n.\n.\n.');
 
   final String nameEN;
   final String nameKO;
@@ -126,12 +126,12 @@ class _RecommendResultScreen extends ConsumerState {
                                     .contains(perfumeList.perfumes.first.id)) {
                                   favoritePerfumeList
                                       .add(perfumeList.perfumes.first);
-                                  OrbSnackBar.show(context: context, message: "즐겨찾기에 추가되었습니다.", type: OrbSnackBarType.info);
+                                  OrbSnackBar.show(context: context, message: "찜 목록에 추가되었습니다.", type: OrbSnackBarType.info);
 
                                 } else {
                                   favoritePerfumeList
                                       .remove(perfumeList.perfumes.first);
-                                  OrbSnackBar.show(context: context, message: "즐겨찾기서 제거되었습니다.", type: OrbSnackBarType.info);
+                                  OrbSnackBar.show(context: context, message: "찜 목록에서 제거되었습니다.", type: OrbSnackBarType.info);
                                 }
                               });
                             },
@@ -218,7 +218,7 @@ class _RecommendResultScreen extends ConsumerState {
                                               children: [
                                                 const Icon(
                                                   Icons.star,
-                                                  color: Color(0xffffd700),
+                                                  color: Color(0xffffd800),
                                                 ),
                                                 Text(
                                                   perfume.rating.toString(),
@@ -306,7 +306,7 @@ class _RecommendResultScreen extends ConsumerState {
                           Column(
                             children: [
                               Text(
-                                "상세설명",
+                                "글로 시향하기",
                                 style: theme.textTheme.titleMedium
                                     ?.copyWith(fontWeight: FontWeight.bold),
                               ),
@@ -330,7 +330,7 @@ class _RecommendResultScreen extends ConsumerState {
               ),
               OrbButton(
                 buttonText: '구매하기',
-                enabledBackgroundColor: Color(0xff111111),
+                enabledBackgroundColor: Color(0xff454655),
                 onPressed: () async{
                   launchUrl(Uri.parse(perfume.value!.perfumeUrl));
                 },
@@ -352,7 +352,7 @@ class _RecommendResultScreen extends ConsumerState {
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
                         onTap: () {
-                          ref.read(routerProvider).pushReplacement(
+                          ref.read(routerProvider).push(
                                 RouteInfo.perfumeDetail.fullPath,
                                 extra: perfumeList.perfumes[index + 1].id,
                               );
@@ -366,7 +366,7 @@ class _RecommendResultScreen extends ConsumerState {
                                   margin: const EdgeInsets.all(8),
                                   padding: const EdgeInsets.symmetric(
                                     vertical: 24,
-                                    horizontal: 24,
+                                    horizontal: 40,
                                   ),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8.0),
@@ -392,19 +392,19 @@ class _RecommendResultScreen extends ConsumerState {
                                 Column(
                                   children: [
                                     Text(
-                                      perfumeList.perfumes[index + 1].company,
+                                      perfumeList.perfumes[index + 1].name+"\n",
                                       style:
                                           theme.textTheme.bodyMedium?.copyWith(
                                         fontWeight: FontWeight.bold,
                                       ),
                                       textAlign: TextAlign.center,
-                                      maxLines: 1,
+                                      maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                     Text(
-                                      perfumeList.perfumes[index + 1].name,
+                                      perfumeList.perfumes[index + 1].company,
                                       style: theme.textTheme.bodyMedium,
-                                      maxLines: 2,
+                                      maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       textAlign: TextAlign.center,
                                     ),

@@ -145,18 +145,18 @@ class _HomeScreen extends ConsumerState {
                             Column(
                               children: [
                                 Text(
-                                  perfumeList.content[index].name,
+                                  perfumeList.content[index].name+"\n",
                                   style: theme.textTheme.bodyMedium?.copyWith(
                                     fontWeight: FontWeight.bold,
                                   ),
                                   textAlign: TextAlign.center,
-                                  maxLines: 1,
+                                  maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 Text(
                                   perfumeList.content[index].company,
                                   style: theme.textTheme.bodyMedium,
-                                  maxLines: 2,
+                                  maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.center,
                                 ),

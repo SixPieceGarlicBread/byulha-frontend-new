@@ -37,6 +37,7 @@ class OrbAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
+
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: trailing ?? const SizedBox(),

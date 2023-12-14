@@ -43,6 +43,7 @@ class _PerfumeDetailScreen extends ConsumerState<PerfumeDetailScreen> {
             Navigator.pop(context);
           },
         ),
+
       ),
       shrinkWrap: true,
       body: perfumeDetail.when(
@@ -75,7 +76,9 @@ class _PerfumeDetailScreen extends ConsumerState<PerfumeDetailScreen> {
                   ),
                   Column(
                     children: [
-                      Text(
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 27),
+                      child: Text(
                         perfume.name,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           fontWeight: FontWeight.bold,
@@ -83,8 +86,9 @@ class _PerfumeDetailScreen extends ConsumerState<PerfumeDetailScreen> {
                           color: const Color(0xff625a8b),
                         ),
                         textAlign: TextAlign.center,
-                        maxLines: 1,
+                        maxLines: 3,
                         overflow: TextOverflow.ellipsis,
+                      ),
                       ),
                       Text(
                         perfume.company,

@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		+mVJr4yjRw/Vu7FJ1R3a8a5grcg=
+		cC13qIijaZKSEj1eUkE/1P+DuJI=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		Z899n824gJVX2/iTptinwsb+lW0=
+		xsn/yM6qq+rZSvN4yPnjlscBGnM=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		kGW1gykFlW2IP29e6PduoJyLtXs=
+		w3wHvYyoZDGGsBiC1VlVlu7oaqY=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/%E1%84%81%E1%85%A9%E1%84%87%E1%85%AE%E1%84%80%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%89%E1%85%B3.jpeg</key>
 		<data>
@@ -174,7 +174,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/recommend_result_screen.dart</key>
 		<data>
-		yqAevKkQ3QnKNHa4S510PXtXcO4=
+		uolD4jE12Glv4B/T7EYXNg3wAsc=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -417,7 +417,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WkYCo/VJ8OvjHH8kbSAvX5d5YFNQxS42VPNYZcb2E6M=
+			ivIUrQRI+yHjDxuurzdB8BzNvFgJHFEIPcOZmUI4kfI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -431,7 +431,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			o7VM819L1pz700RJAO6WmRaKfoiR5D2jFWFXvw9m2zU=
+			I7rq8ZqmOxO67dKRB5jQlzBfpumqeMOe3oaGxCT2lwU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -585,7 +585,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WlSyjC0nOj8ZeBUBFNTdTrA1Ft+2RPrL/azKCZjrYZ8=
+			WAwVrgAEEFmkXS9v1LhOKUvuga+gU0fMXK5isLzyd2M=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/%E1%84%81%E1%85%A9%E1%84%87%E1%85%AE%E1%84%80%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%89%E1%85%B3.jpeg</key>
@@ -641,7 +641,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			q9MpwmyDbhLSXIb8gSg72sSXNhRMG+F29sZ15+j/OQc=
+			p3BWY5iBqH/wqBlxjVOAmbOO/q/kgP4LP8M8SvK85k4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

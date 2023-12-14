@@ -159,7 +159,7 @@ class _RecommendResultScreen extends ConsumerState {
                               color: const Color(0xff625a8b),
                             ),
                             textAlign: TextAlign.center,
-                            maxLines: 1,
+                            maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ),
                           Text(

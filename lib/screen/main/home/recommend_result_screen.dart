@@ -80,7 +80,7 @@ class _RecommendResultScreen extends ConsumerState {
           return Column(
             children: [
               const SizedBox(
-                height: 32,
+                height: 0,
               ),
               Image.asset(
                 'assets/images/${perfumeList.moods.first.name.toLowerCase()}.png',
@@ -116,7 +116,7 @@ class _RecommendResultScreen extends ConsumerState {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
-                height: 42,
+                height: 35,
               ),
               perfume.when(
                 data: (perfume) {

@@ -82,18 +82,18 @@ class _FavoriteScreen extends ConsumerState<FavoriteScreen> {
                       Column(
                         children: [
                           Text(
-                            perfumeList[index].company,
+                            perfumeList[index].name+"\n",
                             style: theme.textTheme.bodyMedium?.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
                             textAlign: TextAlign.center,
-                            maxLines: 1,
+                            maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ),
                           Text(
-                            perfumeList[index].name,
+                            perfumeList[index].company,
                             style: theme.textTheme.bodyMedium,
-                            maxLines: 2,
+                            maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.center,
                           ),
@@ -111,12 +111,12 @@ class _FavoriteScreen extends ConsumerState<FavoriteScreen> {
                                 .contains(perfumeList[index].id)) {
                               perfumeList
                                   .add(perfumeList[index]);
-                              OrbSnackBar.show(context: context, message: "즐겨찾기에 추가되었습니다.", type: OrbSnackBarType.info);
+                              OrbSnackBar.show(context: context, message: "찜 목록에 추가되었습니다.", type: OrbSnackBarType.info);
 
                             } else {
                               perfumeList
                                   .remove(perfumeList[index]);
-                              OrbSnackBar.show(context: context, message: "즐겨찾기서 제거되었습니다.", type: OrbSnackBarType.info);
+                              OrbSnackBar.show(context: context, message: "찜 목록에서 제거되었습니다.", type: OrbSnackBarType.info);
                             }
                           });
                         },

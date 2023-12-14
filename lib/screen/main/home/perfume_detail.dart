@@ -238,6 +238,9 @@ class _PerfumeDetailScreen extends ConsumerState<PerfumeDetailScreen> {
                             style: theme.textTheme.titleMedium
                                 ?.copyWith(fontWeight: FontWeight.bold),
                           ),
+                          const SizedBox(
+                            height: 16,
+                          ),
                           Text(
                             perfume.perfumeDetail,
                             style: theme.textTheme.bodyMedium,

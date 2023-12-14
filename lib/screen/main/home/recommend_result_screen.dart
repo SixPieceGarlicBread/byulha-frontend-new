@@ -310,6 +310,9 @@ class _RecommendResultScreen extends ConsumerState {
                                 style: theme.textTheme.titleMedium
                                     ?.copyWith(fontWeight: FontWeight.bold),
                               ),
+                              const SizedBox(
+                                height: 16,
+                              ),
                               Text(
                                 perfume.perfumeDetail,
                                 style: theme.textTheme.bodyMedium,
@@ -424,7 +427,7 @@ class _RecommendResultScreen extends ConsumerState {
         error: (error, stackTrace) => OrbShimmerContent(),
       ),
         submitButton: OrbButton(
-          buttonText: '다시 추천받기',
+          buttonText: '다른 이미지로 추천받기',
           onPressed: () async{
             ref.read(routerProvider).pushReplacement(RouteInfo.imageRecognition.fullPath);
           },

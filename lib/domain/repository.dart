@@ -10,11 +10,10 @@ import 'auth/login/login.dart';
 final repositoryProvider = Provider<Repository>((ref) => Repository(ref.read(dioProvider)));
 
 class Repository {
-
   final Dio _dio;
   String? accessToken;
-  Repository(this._dio);
 
+  Repository(this._dio);
   Future<String> getSignupToken() async {
     final response = await _dio.get('/user/signup-token');
     return response.data['signupToken'];

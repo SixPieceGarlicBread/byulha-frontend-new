@@ -20,7 +20,7 @@ class ImageRecognitionScreen extends ConsumerStatefulWidget {
 class _ImageRecognitionScreenState
     extends ConsumerState<ImageRecognitionScreen> {
   final PageController _pageController = PageController();
-  final int _totalSlides = 3; // 총 튜토리얼 페이지 수
+  final int _totalSlides = 1; // 총 튜토리얼 페이지 수
   final ImagePicker _picker = ImagePicker();
 
   XFile? image;
@@ -138,8 +138,6 @@ class _ImageRecognitionScreenState
             message: '리비에게 10초만 시간을 주세요!',
             type: OrbSnackBarType.info,
           );
-
-// 일정 시간이 지난 후에 두 번째 OrbSnackBar 띄우기
           Future.delayed(Duration(seconds: 3), () {
             OrbSnackBar.show(
               context: context,
@@ -150,7 +148,14 @@ class _ImageRecognitionScreenState
           Future.delayed(Duration(seconds: 6), () {
             OrbSnackBar.show(
               context: context,
-              message: '리비가 향수를 꺼내서 오고 있습니다.',
+              message: '리비가 향수를 찾고 있습니다.',
+              type: OrbSnackBarType.info,
+            );
+          });
+          Future.delayed(Duration(seconds: 9), () {
+            OrbSnackBar.show(
+              context: context,
+              message: '리비가 향수를 가져왔어요!',
               type: OrbSnackBarType.info,
             );
           });

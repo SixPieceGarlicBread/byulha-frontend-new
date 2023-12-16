@@ -75,8 +75,9 @@ class _HomeScreen extends ConsumerState {
           const SizedBox(
             height: 16,
           ),
+          //버튼만들기
           OrbButton(
-            buttonText: '<AI조향사 리비>에게 추천받기',
+            buttonText: 'AI조향사 <리비> 에게 추천받기',
             onPressed: () async {
               ref
                   .read(routerProvider)

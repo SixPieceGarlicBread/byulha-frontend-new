@@ -1,130 +1,213 @@
-// homescreen.dart
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taba/domain/perfume/perfume.dart';
-import 'package:taba/domain/perfume/perfume_provider.dart';
-import 'package:taba/domain/auth/repository.dart';
-import 'package:taba/screen/main/home/image_rec.dart';
+import 'package:taba/domain/perfume/perfume_list_provider.dart';
+import 'package:taba/modules/orb/components/components.dart';
+import 'package:taba/routes/router_provider.dart';
+import 'package:taba/screen/main/home/perfume_detail.dart';
+
+import '../../../routes/router_path.dart';
 
 final currentPageProvider = StateProvider<int>((ref) => 0);
 
-class HomeScreen extends ConsumerWidget {
-  HomeScreen({Key? key}) : super(key: key);
-
-  final PageController _pageController = PageController();
-  final int _totalAds = 3; // 총 광고 페이지 수
+class HomeScreen extends ConsumerStatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final int currentPage = ref.watch(currentPageProvider);
-    final AsyncValue<PerfumeList>? perfumeList = ref.watch(perfumeListProvider);
+  createState() => _HomeScreen();
+}
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Align(
-          alignment: Alignment.centerLeft,
-          child: Text('로고'), // 로고 대신에 이미지 위젯을 사용할 수 있음
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+class _HomeScreen extends ConsumerState {
+  final PageController _pageController = PageController();
+  final int _totalAds = 2; // 총 광고 페이지 수
+
+  @override
+  Widget build(BuildContext context) {
+    final AsyncValue<PerfumeBoard> perfumeBoard =
+        ref.watch(perfumeListProvider);
+    final favoritePerfumeList = ref.watch(favoritePerfumeListProvider);
+    final ThemeData theme = Theme.of(context);
+
+    return OrbScaffold(
+      orbAppBar: const OrbAppBar(
+        title: "PURPLE",
+        trailing: Icon(Icons.menu),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 200, // 광고 배너의 높이
-              child: PageView.builder(
-                controller: _pageController,
-                onPageChanged: (page) => ref.read(currentPageProvider.notifier).state = page,
-                itemCount: _totalAds,
-                itemBuilder: (_, index) {
-                  return Container(
-                    color: Colors.grey, // 여기에 광고 이미지를 넣을 수 있음
-                    child: Center(
-                      child: Text('배너 ${index + 1}'),
-                    ),
-                  );
-                },
+      shrinkWrap: true,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CarouselSlider(
+            items: [
+              Image.asset(
+                'assets/images/main_image1.png',
+                fit: BoxFit.fill,
               ),
-            ),
-            SizedBox(height: 10), // 페이지 인디케이터와 광고 배너 사이의 간격
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                _totalAds,
-                    (index) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                  child: CircleAvatar(
-                    radius: 5,
-                    backgroundColor: currentPage == index ? Colors.blue : Colors.grey,
-                  ),
-                ),
+              Image.asset(
+                'assets/images/main_image2.JPG',
+                fit: BoxFit.fill,
               ),
-            ),
-            SizedBox(height: 20), // 버튼 위의 간격
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  // image_rec.dart 페이지로 이동
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ImageRecScreen()), // ImageRecPage는 image_rec.dart의 페이지 위젯
-                  );
-                },
-                child: Text('이미지로 향수추천받기'),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 120, vertical: 40),
-                ),
+              Image.asset(
+                'assets/images/main_image3.JPG',
+                fit: BoxFit.fill,
               ),
+            ]
+                .map((e) => Builder(builder: (BuildContext context) {
+                      return ClipRRect(
+                        //borderRadius: BorderRadius.circular(8),
+                        child: e,
+                      );
+                    }))
+                .toList(),
+            options: CarouselOptions(
+              clipBehavior: Clip.hardEdge,
+              aspectRatio: 1.2,
+              viewportFraction: 1,
+              autoPlayInterval: const Duration(seconds: 5),
+              autoPlayAnimationDuration: const Duration(seconds: 2),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              autoPlay: true,
+              onPageChanged: (index, reason) {},
             ),
-            SizedBox(height: 20), // 버튼 아래의 간격
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Best Rated'),
-              ),
-            ),
-            GridView.builder(
-              physics: NeverScrollableScrollPhysics(),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          //버튼만들기
+          OrbButton(
+            buttonText: 'AI조향사 <리비> 에게 추천받기',
+            onPressed: () async {
+              ref
+                  .read(routerProvider)
+                  .push(RouteInfo.imageRecognition.fullPath);
+            },
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          OrbBoardContainer(
+            titleText: 'Best Rated',
+            child: GridView.builder(
               shrinkWrap: true,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 3 / 4,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: perfumeBoard.when(
+                data: (perfumeList) => perfumeList.content.length,
+                loading: () => 10,
+                error: (error, stackTrace) => 10,
               ),
-              itemCount: perfumeList?.value?.content.length ?? 0,
-              itemBuilder: (context, index) {
-                final perfume = perfumeList?.value?.content[index];
-                if (perfume != null) {
-                  return Card(
-                    child: Column(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.7,
+              ),
+              itemBuilder: (BuildContext context, int index) {
+                return perfumeBoard.when(
+                  data: (perfumeList) {
+                    return Stack(
+                      fit: StackFit.expand,
                       children: [
-                        Text(perfume.name),
-                        Text('Rating: ${perfume.rating.toString()}'),
-                        // 향수 이미지와 기타 속성을 여기에 추가할 수 있습니다.
+                        Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 24,
+                                horizontal: 40,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: const Color(0xffffffff),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Color(0x0f000000),
+                                    offset: Offset(0, 4),
+                                    blurRadius: 8,
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                              ),
+                              child: InkWell(
+                                onTap: () {
+                                  ref.read(routerProvider).push(
+                                      RouteInfo.perfumeDetail.fullPath,
+                                      extra: perfumeList.content[index].id);
+                                  //
+                                },
+                                child: Image.network(
+                                  perfumeList.content[index].thumbnailUrl,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  perfumeList.content[index].name+"\n",
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Text(
+                                  perfumeList.content[index].company,
+                                  style: theme.textTheme.bodyMedium,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Positioned(
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  if (!favoritePerfumeList.map((e) => e.id)
+                                      .contains(perfumeList.content[index].id)) {
+                                    favoritePerfumeList
+                                        .add(perfumeList.content[index]);
+                                    OrbSnackBar.show(context: context, message: "찜 목록에 추가되었습니다.", type: OrbSnackBarType.info);
+
+                                  } else {
+                                    favoritePerfumeList
+                                        .remove(perfumeList.content[index]);
+                                    OrbSnackBar.show(context: context, message: "찜 목록에서 제거되었습니다.", type: OrbSnackBarType.info);
+                                  }
+                                });
+                              },
+                              icon: favoritePerfumeList
+                                      .map((e) => e.id)
+                                      .contains(perfumeList.content[index].id)
+                                  ? const Icon(
+                                      Icons.favorite,
+                                      color: Color(0xff625a8b),
+                                    )
+                                  : const Icon(
+                                      Icons.favorite_border,
+                                      color: Color(0xff625a8b),
+                                    ),
+                            ),
+                          ),
+                        ),
                       ],
-                    ),
-                  );
-                } else {
-                  return SizedBox(); // 데이터가 없는 경우 비어있는 위젯을 반환합니다.
-                }
+                    );
+                  },
+                  loading: () => const OrbShimmerContent(),
+                  error: (error, stackTrace) => const OrbShimmerContent(),
+                );
               },
             ),
-            if (perfumeList?.value?.hasNext == true)
-              ElevatedButton(
-                onPressed: () {
-                  int currentPage = ref.read(currentPageProvider);
-                  ref.read(perfumeListProvider.notifier).getPerfumeList(currentPage + 1, 10);
-                },
-                child: Text('더보기'),
-              )
-            else
-              Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text('마지막 페이지입니다'),
-              ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

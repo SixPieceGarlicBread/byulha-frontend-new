@@ -86,9 +86,9 @@ class _ImageRecognitionScreenState
   Widget build(BuildContext context) {
     return OrbScaffold(
       orbAppBar: OrbAppBar(
-        title: '<AI조향사 리비>에게 추천받기',
+        title: 'AI조향사 <리비> 에게 추천받기',
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -109,7 +109,7 @@ class _ImageRecognitionScreenState
                     fit: BoxFit.fill,
                   )
                 : Image.asset(
-                    'assets/images/tutorial.jpg',
+                    'assets/images/tutorial.png',
                     height: 400,
                     fit: BoxFit.fill,
                   ),

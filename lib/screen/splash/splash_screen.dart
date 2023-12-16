@@ -40,7 +40,14 @@ class _SplashScreen extends ConsumerState<SplashScreen> with TickerProviderState
       splashScreenBody: FadeTransition(
         opacity: _controller,
         child: Center(
-          child: Text(
+          child:
+Image.asset(
+            'assets/images/logo.png',
+            width: 500,
+            height: 500,
+          ),
+
+ /*         Text(
             'PURPLE',
             style: TextStyle(
               fontSize: 50,
@@ -48,7 +55,7 @@ class _SplashScreen extends ConsumerState<SplashScreen> with TickerProviderState
               color: Color(0xff625a8b),
             ),
           ),
-
+*/
         ),
       ),
     );

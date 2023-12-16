@@ -71,7 +71,7 @@ class MainScreen extends ConsumerWidget {
         onPressed: () {
           ref.read(routerProvider).push(RouteInfo.imageRecognition.fullPath);
         },
-        child: const Icon(Icons.lightbulb),
+        child: const Icon(Icons.bubble_chart_rounded),
         shape: const CircleBorder(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

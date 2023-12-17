@@ -10,15 +10,15 @@
 		</data>
 		<key>AppIcon60x60@2x.png</key>
 		<data>
-		WBDcNG/0BUOtsKQgKYOLyuqAbAM=
+		+m6UgNoehM+qICRw8PmFTxomY5U=
 		</data>
 		<key>AppIcon76x76@2x~ipad.png</key>
 		<data>
-		Bqtil6RquU1Hfn8gu0IYARWvCIM=
+		Nmo6FSS0ggFi98btoFFxM7yFUUc=
 		</data>
 		<key>Assets.car</key>
 		<data>
-		Nu11EQf3ekqMYEhVjpc9vbCjyng=
+		l5wy28MjUi7Vrl4FTiPbu8272FU=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		4Cc05SvsiMaPJtIEfiMPbBub/uM=
+		D9T4bSxoRF8QZywQ+Zt/JmGgPLY=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		QlzK96uSXNpswdgu2wnS0/yRrUY=
+		ayF7D3TB42daGW1Riw/GElkBrss=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -150,11 +150,11 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		nSdNHzA+56mqvrSJ8G/f0wuX5uc=
+		sKHv6FGVGCwmJO2CGghvpZv1POU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/home_screen.dart</key>
 		<data>
-		/P7dt025q9E2m2crRa6LRuRndTk=
+		mQ1SFrZ6bKGyfNn3D3UzmjrXXC8=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/image_recognition_screen.dart</key>
 		<data>
@@ -326,7 +326,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		kM4vhqfA+qJyGemLMqKr3y4ZNPo=
+		HG9aOy4+6xlJ+YnY+egb0IdjOjs=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -346,21 +346,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Gb4XFIHccaCygD680B3YsMX9V3je40wKPKvJSMIl8k4=
+			eDa3tllsp7zB4fRrnlexzCXhhFoyQnLWHOvnxxLIRus=
 			</data>
 		</dict>
 		<key>AppIcon76x76@2x~ipad.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QcfUL25h+P5/MLH/oiVq7LyWgr4G0YxKMGIEPhouVHw=
+			lXe+d1FwdJ+BPEzuEYfKvHlurL5RQaHeCaiowoR/ue4=
 			</data>
 		</dict>
 		<key>Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fvC/7dzXXtUvDoBNyA2pR1YrI9lxnymyfaNhOM8uJVs=
+			9O88kPueRyVCIQ0HjY3Hif8Qe/BdF+BKJCLzMXbtgnM=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -409,7 +409,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zqnxw8Gid6hnkSfrNWGK+607n4RqFpnmH/G7XdOVnO8=
+			8ffrtIn13osBKPqLHixCkzM7PpiDbJyPUKpsuFdx0eo=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -423,7 +423,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			D8MhmHa7xqLvL7mHOBn1VAhSO082NCIip9E/BiGH1L8=
+			svNaZ65J0QvD4Ss3kCK0nnrEOEw/J5q84OJP5xhlN8g=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -591,14 +591,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oj9TL3+Vfxa837Xpv/aSPYcy+FfXanxm78v4BM5KSto=
+			Lww3aSKdtocZArumZXP5dvrqXWG+BrPD288jzz5WotI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/home_screen.dart</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SIT8Nb2Y5VypXp0ptMeb3XQOcRVZmPiOn0B1XMdEoWQ=
+			onJDFThNT0xv0w1is5lFV5dFQPQ/ZxjaIN7XBCAzm1A=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/image_recognition_screen.dart</key>

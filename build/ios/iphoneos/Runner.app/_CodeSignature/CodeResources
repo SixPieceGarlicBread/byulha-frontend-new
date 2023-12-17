@@ -10,15 +10,15 @@
 		</data>
 		<key>AppIcon60x60@2x.png</key>
 		<data>
-		W0gmQxmINA6vbi5M4Y5KotdMnVA=
+		o1pmhQ9ANPlziWV033FEFcUMgoc=
 		</data>
 		<key>AppIcon76x76@2x~ipad.png</key>
 		<data>
-		k2fBD/jokRFQCCj8xCDSOt3s78k=
+		FXjPgqv5crrH6Oq/YlMEoSoiN4A=
 		</data>
 		<key>Assets.car</key>
 		<data>
-		LZLQ4D+C9hRnI/l10EVZ515l5n4=
+		l5wy28MjUi7Vrl4FTiPbu8272FU=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		jr7rQtSiryDw7O9O1KcOCxAPBVQ=
+		R/9nvlJvpqcMNT1RVVMVS2BjQus=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		3kJ9aFikRzjbmyT1knblUpHIhBE=
+		O/HW1TNCsuhCMrVtN6nQm9FyJVk=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -146,7 +146,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/home_screen.dart</key>
 		<data>
-		/P7dt025q9E2m2crRa6LRuRndTk=
+		mQ1SFrZ6bKGyfNn3D3UzmjrXXC8=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/image_recognition_screen.dart</key>
 		<data>
@@ -262,7 +262,7 @@
 		</data>
 		<key>Frameworks/device_info_plus.framework/device_info_plus</key>
 		<data>
-		exq87FveZUd8g7ixshA9yQFtAXs=
+		oFXPk40OsvPKrUGe7RjPIPWsZkY=
 		</data>
 		<key>Frameworks/flutter_secure_storage.framework/Info.plist</key>
 		<data>
@@ -274,7 +274,7 @@
 		</data>
 		<key>Frameworks/flutter_secure_storage.framework/flutter_secure_storage</key>
 		<data>
-		bQczbf+PNsSIsHrbvR397wBQAIU=
+		AB3ds+QHxcUcbumkaaPy/3JKEeU=
 		</data>
 		<key>Frameworks/image_picker_ios.framework/Info.plist</key>
 		<data>
@@ -286,7 +286,7 @@
 		</data>
 		<key>Frameworks/image_picker_ios.framework/image_picker_ios</key>
 		<data>
-		0AI2b7hkBJ0f5Hs8lN8iEY8FLEM=
+		X0l6+UY+vaIxaFw0wgGb2AURRp4=
 		</data>
 		<key>Frameworks/shared_preferences_foundation.framework/Info.plist</key>
 		<data>
@@ -298,7 +298,7 @@
 		</data>
 		<key>Frameworks/shared_preferences_foundation.framework/shared_preferences_foundation</key>
 		<data>
-		S+5KwAVot2Thh+XBPerJu33SzJE=
+		xrxzayPbqOsAfHxcprF/YSqyi2Y=
 		</data>
 		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
 		<data>
@@ -310,11 +310,11 @@
 		</data>
 		<key>Frameworks/url_launcher_ios.framework/url_launcher_ios</key>
 		<data>
-		/ahgRkUNfzNjfspa4KNb/0rAqxo=
+		iTOjwlY7qEtBxLhfbZ4m9Suo2ic=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		31zAab4A7TmebzOST8pQs1uDxlg=
+		//ipx5pifBT7BRRdpVdSU6MBkk8=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -338,21 +338,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nTKNHUXzhjdeKHNhWbT/pTxJMOOWIBbb+YsCmk6AEhw=
+			zspRxU6tabCWz33X6DiNhlQeE+uCSy6GlrSM8V4W4QE=
 			</data>
 		</dict>
 		<key>AppIcon76x76@2x~ipad.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KaU6BpCNLefiwNS1DZZ8xhrLM/dmicIH5D8o6XJMOZY=
+			yLTAII+tZo5SJtA0xY/MC7rsGUr9ll8Snq+3bfAl4Tk=
 			</data>
 		</dict>
 		<key>Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fHdz53vVQvOCRmPe/0OB7kpjsfZjhRHAH5WWmzr7bxo=
+			9O88kPueRyVCIQ0HjY3Hif8Qe/BdF+BKJCLzMXbtgnM=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -401,7 +401,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c3rh+H3ZbVKja4oDMywf0eummDCOcIt/tt353EP7Pbo=
+			OI8pO916slS7RqpRgyY89ABeD7tTyPaOrUfl/YxRzAI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -415,7 +415,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7tKjg/R4lWBQOokmNJ4L/VDnS48AdrLCy5RK0w99N9k=
+			tZpHJgQuL+2IBgfYNzI/9iiASwk7oeufkFCGu4xtDTA=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -576,7 +576,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SIT8Nb2Y5VypXp0ptMeb3XQOcRVZmPiOn0B1XMdEoWQ=
+			onJDFThNT0xv0w1is5lFV5dFQPQ/ZxjaIN7XBCAzm1A=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/lib/screen/main/home/image_recognition_screen.dart</key>
@@ -779,7 +779,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z0QKH2QKTHXEyf2rAIxF9XsT5YAU17ELSGFWY/mY6AY=
+			KbjtUCu1KYRtnjn+mzRbMzSViQOOcUlt9f5myw9Kow0=
 			</data>
 		</dict>
 		<key>Frameworks/flutter_secure_storage.framework/Info.plist</key>
@@ -800,7 +800,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WJuznaG0n/AmLDW/BbLX9fn4CK6OBA2WBobhfq1QS1o=
+			jr4AFvhT7fXphKCFWtzS58fNxSG6OifsTe3cAQoGLgE=
 			</data>
 		</dict>
 		<key>Frameworks/image_picker_ios.framework/Info.plist</key>
@@ -821,7 +821,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			z86dElAtgcNRuyGdLtSmaF3Tnwt05WUKUXLuzctkVRE=
+			4G3FEMReyOzMjlmaER/7CwTXtWL1o0zWEq8i9TDWJcA=
 			</data>
 		</dict>
 		<key>Frameworks/shared_preferences_foundation.framework/Info.plist</key>
@@ -842,7 +842,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AySj2qAbD8GmyTvByc6LqRoPnYdpTeZGqsT1MxVXKjE=
+			ZZChyoHzitGT0PbwGoSupWNaIBWH/cuhGjfDIrLU1ME=
 			</data>
 		</dict>
 		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
@@ -863,7 +863,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			F57kBgEwuIXPZ4WdgWvi30+69Rq3wYgrPfHjC9VEbQA=
+			TCSR+d9yjfZFvAJFN0XAxPjpH87ttzzVi71HAXfH744=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
